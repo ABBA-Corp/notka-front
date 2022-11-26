@@ -1,0 +1,19 @@
+.Navbar{
+    top: 0;
+    left: 0;
+    z-index: 11;
+    width: 100vw;
+    position: fixed;
+    background-color: dodgerblue;
+    .navbar{
+        display: flex;
+        padding: 10px 13vw;
+        align-items: center;
+        justify-content: space-between;
+        .logo{
+            color: black;
+            font-size: 3vw;
+            text-decoration: none;
+        }
+    }
+}
