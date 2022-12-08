@@ -1,3 +1,8 @@
+@font-face {
+  font-family: zonapro;
+  src: url(../assets/fonts/zonapro.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +16,7 @@ body {
   box-sizing: border-box;
 }
 
-.parent{
+.parent {
   margin: 0;
   padding: 0;
   z-index: 3;
@@ -24,14 +29,39 @@ body {
 .wrapper {
   width: 100%;
   height: 100%;
-  padding: 40px 13vw;
+  padding: 40px 15vw;
+
+  @media (max-width:1000px) {
+    padding: 40px 13vw;
+  }
+
+  @media (max-width:767px) {
+    padding: 40px 10vw;
+  }
+
+  @media (max-width:500px) {
+    padding: 30px 7vw;
+  }
 }
 
 .title {
-  font-size: 3vw;
-  color: black;
+  font-size: 2vw;
+  color: white;
   text-align: center;
-  &::first-letter{
+
+  &::first-letter {
     text-transform: uppercase;
+  }
+
+  @media (max-width:1100px) {
+    font-size: 2.5vw;
+  }
+
+  @media (max-width:800px) {
+    font-size: 3vw;
+  }
+
+  @media (max-width:500px) {
+    font-size: 4.3vw;
   }
 }

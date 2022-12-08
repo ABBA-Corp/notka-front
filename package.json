@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.10.16",
+    "@mui/material": "^5.10.17",
+    "@mui/styled-engine-sc": "^5.10.16",
     "bootstrap": "^5.2.3",
     "eslint": "8.28.0",
     "eslint-config-next": "13.0.5",
@@ -16,6 +22,8 @@
     "node-sass": "^8.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.56.1"
+    "react-slick": "^0.29.0",
+    "sass": "^1.56.1",
+    "styled-components": "^5.3.6"
   }
 }
