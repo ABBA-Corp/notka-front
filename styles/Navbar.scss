@@ -22,6 +22,11 @@
         padding-bottom: 10px;
         justify-content: flex-start;
 
+        @media (max-width:600px) {
+            padding: 30px 7vw;
+            padding-bottom: 7px;
+        }
+
         .logo {
             width: 8vw;
             text-decoration: none;
@@ -32,6 +37,14 @@
 
             @media (max-width:900px) {
                 width: 13vw;
+            }
+
+            @media (max-width:600px) {
+                width: 17vw;
+            }
+
+            @media (max-width:450px) {
+                width: 20vw;
             }
 
             .img {
@@ -54,6 +67,14 @@
             @media (max-width:900px) {
                 font-size: 4.5vw;
             }
+
+            @media (max-width:600px) {
+                font-size: 5.5vw;
+            }
+
+            @media (max-width:450px) {
+                font-size: 6.5vw;
+            }
         }
 
         .menu {
@@ -72,6 +93,14 @@
                 font-size: 2vw;
             }
 
+            @media (max-width:600px) {
+                font-size: 3vw;
+            }
+
+            @media (max-width:450px) {
+                font-size: 3.5vw;
+            }
+
             .menu-bar {
                 height: auto;
                 max-width: 2vw;
@@ -87,6 +116,16 @@
                     max-width: 3.3vw;
                     min-width: 3.3vw;
                 }
+
+                @media (max-width:600px) {
+                    max-width: 4.3vw;
+                    min-width: 4.3vw;
+                }
+
+                @media (max-width:450px) {
+                    max-width: 5vw;
+                    min-width: 5vw;
+                }
             }
         }
     }
@@ -94,6 +133,7 @@
 
 .scroll-navbar {
     background-color: #FFEDC3;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
     .navbar {
         padding-top: 7px;

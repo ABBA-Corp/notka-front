@@ -31,9 +31,11 @@ function HomeCategories() {
                             <Image src={Hover1} priority alt="image" className="hover1" width={1000} height={500} />
                             <Image src={Hover2} priority alt="image" className="hover2" width={1000} height={500} />
                             <Image src={Hover3} priority alt="image" className="hover3" width={1000} height={500} />
-                            <Link href={`/categories/${data.id}`} className={`body`} style={{ backgroundColor: `${data.color}` }}>
-                                <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
-                                <h3 className="name">{data.name_uz}</h3>
+                            <Link legacyBehavior href={`/categories/${data.id}`}>
+                                <a className={`body`} style={{ backgroundColor: `${data.color}` }}>
+                                    <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
+                                    <h3 className="name">{data.name_uz}</h3>
+                                </a>
                             </Link>
                         </div>
                     ))}

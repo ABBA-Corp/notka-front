@@ -17,7 +17,7 @@ const Navbar = () => {
     return (
         <div className={`Navbar ${scroll && "scroll-navbar"}`}>
             <nav className="navbar">
-                <Link href="/" className="logo">
+                <Link href="/" className="logo" onClick={() => window.scrollTo(0, 0)}>
                     <Image src={Logo} priority={true} alt="logo" className="img" />
                 </Link>
                 <div className="stick">|</div>
