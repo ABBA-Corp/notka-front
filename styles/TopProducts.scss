@@ -23,7 +23,7 @@
             .product {
                 display: flex !important;
 
-                .imgs {                    
+                .imgs {
                     display: flex;
                     padding: 6vw 3vw;
                     position: relative;
@@ -68,7 +68,7 @@
                     }
                 }
 
-                .texts {                    
+                .texts {
                     padding: 5vw 2vw;
 
                     .name {
@@ -283,7 +283,7 @@
                 }
 
                 &::before {
-                    font-size: 2.5vw;
+                    font-size: 1.7vw;
                     font-weight: 100;
                     color: #FFEDC3;
                     content: "\f104";
@@ -292,15 +292,15 @@
                     font-family: FontAwesome;
 
                     @media (max-width:1000px) {
-                        font-size: 3vw;
+                        font-size: 2.5vw;
                     }
 
                     @media (max-width:600px) {
-                        font-size: 4.5vw;
+                        font-size: 3.5vw;
                     }
 
                     @media (max-width:450px) {
-                        font-size: 5.5vw;
+                        font-size: 4.5vw;
                     }
                 }
             }
@@ -341,7 +341,7 @@
                 }
 
                 &::before {
-                    font-size: 2.5vw;
+                    font-size: 1.7vw;
                     font-weight: 100;
                     color: #FFEDC3;
                     content: "\f105";
@@ -350,15 +350,15 @@
                     font-family: FontAwesome;
 
                     @media (max-width:1000px) {
-                        font-size: 3vw;
+                        font-size: 2.5vw;
                     }
 
                     @media (max-width:600px) {
-                        font-size: 4.5vw;
+                        font-size: 3.5vw;
                     }
 
                     @media (max-width:450px) {
-                        font-size: 5.5vw;
+                        font-size: 4.5vw;
                     }
                 }
             }
