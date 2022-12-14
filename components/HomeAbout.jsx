@@ -1,22 +1,12 @@
-import { East, PlayArrowRounded } from '@mui/icons-material';
+import Link from 'next/link';
 import Image from 'next/image';
 import Slider from 'react-slick';
+import { useState } from 'react';
+import { dataLenta } from '../pages/api/Api';
 import BackImg from '../assets/images/about.png';
-import Lenta1 from '../assets/images/lenta1.png';
-import Lenta2 from '../assets/images/lenta2.png';
+import { East, PlayArrowRounded } from '@mui/icons-material';
 
 function HomeAbout() {
-
-    const dataLenta = [
-        { id: 1, image: Lenta1 },
-        { id: 2, image: Lenta2 },
-        { id: 3, image: Lenta1 },
-        { id: 4, image: Lenta2 },
-        { id: 5, image: Lenta1 },
-        { id: 6, image: Lenta2 },
-        { id: 7, image: Lenta1 },
-        { id: 8, image: Lenta2 }
-    ]
 
     const settings = {
         speed: 5000,
@@ -30,37 +20,51 @@ function HomeAbout() {
         pauseOnHover: false,
     };
 
+    // video
+
+    const [showVideo, setShowVideo] = useState(false);
+
     return (
-        <div className="HomeAbout parent">
-            <div className="wrapper">
-                <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
-                <div className="col-6 texts">
-                    <h1 className="about-title">O наши компани</h1>
-                    <p className="desc">
-                        World Textile Marketing Agency основан
-                        в 2019 году молодыми специалистами
-                        в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
+        <>
+            <div className="HomeAbout parent">
+                <div className="wrapper">
+                    <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
+                    <div className="col-6 texts">
+                        <h1 className="about-title">O наши компани</h1>
+                        <p className="desc">
+                            World Textile Marketing Agency основан
+                            в 2019 году молодыми специалистами
+                            в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
 
-                        Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.World Textile Marketing Agency основан
-                        в 2019 году молодыми специалистами
-                        в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
+                            Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.World Textile Marketing Agency основан
+                            в 2019 году молодыми специалистами
+                            в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
 
-                        Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.
-                    </p>
-                    <div className="btns">
-                        <div className="explore"><East className='icon' /> Подробнее</div>
-                        <div className="explore"><PlayArrowRounded className='icon' /> Видео ролик</div>
+                            Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.
+                        </p>
+                        <div className="btns">
+                            <Link href='/about' className="explore"><East className='icon' />Подробнее</Link>
+                            <div className="explore" onClick={() => setShowVideo(true)}><PlayArrowRounded className='icon' /> Видео ролик</div>
+                        </div>
                     </div>
                 </div>
+                <Slider {...settings} className="lenta">
+                    {dataLenta.map((data) => (
+                        <div key={data.id} className="partner">
+                            <Image src={data.image} priority alt="image" className="lenta-img" width={1000} height={500} />
+                        </div>
+                    ))}
+                </Slider>
             </div>
-            <Slider {...settings} className="lenta">
-                {dataLenta.map((data) => (
-                    <div key={data.id} className="partner">
-                        <Image src={data.image} priority alt="image" className="lenta-img" width={1000} height={500} />
+            {showVideo &&
+                <div className="media">
+                    <div className="contrast" onClick={() => setShowVideo(false)}></div>
+                    <div className="video col-6">
+                        <iframe src="https://www.youtube.com/embed/f_MJhnGuSMM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
-                ))}
-            </Slider>
-        </div>
+                </div>
+            }
+        </>
     )
 };
 

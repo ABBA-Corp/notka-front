@@ -164,7 +164,10 @@
                 }
 
                 .imgs {
+                    display: flex;
                     margin-left: -4vw;
+                    align-items: center;
+                    justify-content: center;
 
                     @media (max-width:600px) {
                         margin-left: -6vw;

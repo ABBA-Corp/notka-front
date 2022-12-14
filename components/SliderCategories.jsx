@@ -2,25 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import Slider from "react-slick";
+import { useQuery } from "react-query";
+import { Skeleton } from "@mui/material";
 import BackImg from '../assets/images/slide-back.png';
 import TextBack from '../assets/images/text-back.png';
-import CategImg1 from '../assets/images/category1.png';
-import CategImg2 from '../assets/images/category2.png';
-import CategImg3 from '../assets/images/category3.png';
+import { dataCategories, fetchCategoriesApi } from "../pages/api/Api";
 
-function SliderCategories() {
-
-    const dataCategories = [
-        { id: 1, color: "#FFEDC3", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 2, color: "#9FF8FF", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 3, color: "#B5FF93", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 4, color: "#FFEDC3", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 5, color: "#9FF8FF", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 6, color: "#B5FF93", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 7, color: "#FFEDC3", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 8, color: "#9FF8FF", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 9, color: "#B5FF93", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" }
-    ];
+function SliderCategories({ lang }) {
 
     const [slideIndex, setSlideIndex] = useState(0);
 
@@ -58,6 +46,43 @@ function SliderCategories() {
         ]
     };
 
+    // data of header-slider
+
+    const { isLoading, data } = useQuery('header-slider', fetchCategoriesApi);
+
+    // skeleton loading
+
+    if (isLoading) {
+        return (
+            <div className="SliderCategories parent">
+                <Slider {...settings} className="carousel">
+                    {[1, 2, 3, 4, 5].map((data, index) => (
+                        <div key={index} className="category">
+                            <div className={`body bg-white`}>
+                                <div className="col-8 tools">
+                                    <div className="texts">
+                                        <p className="slogan">
+                                            <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="100%" />
+                                        </p>
+                                        <h3 className="name">
+                                            <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="100%" />
+                                        </h3>
+                                    </div>
+                                    <div className="links col-12">
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="50%" />
+                                    </div>
+                                </div>
+                                <div className="col-5 imgs">
+                                    <Skeleton variant='rounded' sx={{ bgcolor: 'grey.700' }} width="80%" height="80%" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </Slider>
+            </div>
+        )
+    }
+
     return (
         <div className="SliderCategories parent">
             <Slider {...settings} className="carousel">
@@ -68,7 +93,7 @@ function SliderCategories() {
                                 <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                                 <div className="texts">
                                     <p className="slogan">yangi konfet bizda!</p>
-                                    <h3 className="name">{data.name_uz}</h3>
+                                    <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
                                     <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                 </div>
                                 <div className="links col-12">

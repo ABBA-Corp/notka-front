@@ -1,16 +1,36 @@
 import Head from 'next/head';
+import { useState } from 'react';
+import Modal from '../components/Modal';
 import Icons from '../components/Icons';
 import Header from '../components/Header';
 import Gallery from '../components/Gallery';
 import HomeNews from '../components/HomeNews';
 import ShowRoom from '../components/ShowRoom';
+import Contacts from '../components/Contacts';
 import HomeAbout from '../components/HomeAbout';
 import TopProducts from '../components/TopProducts';
 import Infografics from '../components/Infografics';
 import HomeCategories from '../components/HomeCategories';
 import SliderCategories from '../components/SliderCategories';
 
-export default function Home() {
+export function getStaticProps({ locale }) {
+  return {
+    props: {
+      locale
+    },
+  };
+}
+
+export default function Home(props) {
+
+  // modal
+
+  const [showModal, setShowModal] = useState(false)
+
+  function changeModal() {
+    setShowModal(!showModal)
+  }
+
   return (
     <>
       <Head>
@@ -21,19 +41,22 @@ export default function Home() {
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
-
       </Head>
       <div className='Home'>
         <Header />
-        <SliderCategories />
-        <HomeCategories />
-        <TopProducts />
+        <SliderCategories lang={props.locale} />
+        <HomeCategories lang={props.locale} />
+        <TopProducts lang={props.locale} />
         <HomeAbout />
-        <HomeNews />
+        <HomeNews lang={props.locale} />
         <ShowRoom />
-        <Infografics />
+        <Infografics lang={props.locale} />
         <Icons />
         <Gallery />
+        <Contacts changeModal={changeModal} />
+        {showModal &&
+          <Modal lang={props.locale} changeModal={changeModal} />
+        }
       </div>
     </>
   )

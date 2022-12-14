@@ -1,23 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
+import { useQuery } from "react-query";
+import { Skeleton } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";
-import CategImg1 from '../assets/images/category1.png';
-import CategImg2 from '../assets/images/category2.png';
+import { dataProducts, fetchProductsApi } from "../pages/api/Api";
 
-function TopProducts() {
-
-    const dataProducts = [
-        { id: 1, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 2, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 3, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 4, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 5, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 6, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 7, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 8, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-        { id: 9, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" }
-    ];
+function TopProducts({ lang }) {
 
     const settings = {
         speed: 2000,
@@ -30,6 +19,50 @@ function TopProducts() {
         pauseOnHover: false,
     };
 
+    // data of products
+
+    const { isLoading, data } = useQuery('products', fetchProductsApi);
+
+    // skeleton loading
+
+    if (isLoading) {
+        return (
+            <div className="TopProducts parent">
+                <div className="wrapper">
+                    <h1 className="title d-flex justify-content-center">
+                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="50%" />
+                    </h1>
+                    <div className="carousel">
+                        <div className="product col-12">
+                            <div className="col-6 imgs">
+                                <Skeleton variant='rounded' sx={{ bgcolor: 'grey.700' }} width="70%" height="20vw" />
+                            </div>
+                            <div className="col-6 texts">
+                                <h1 className="name">
+                                    <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="100%" />
+                                    <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="50%" />
+                                </h1>
+                                <div className="top-type col-12">
+                                    <Skeleton variant='rounded' sx={{ bgcolor: 'grey.700' }} width="80%" height="5vw" />
+                                </div>
+                                <div className="desc">
+                                    <div className="keys col-12">
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="70%" />
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="70%" />
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="70%" />
+                                    </div>
+                                </div>
+                                <div className="btns">
+                                    <Skeleton variant='rounded' sx={{ bgcolor: 'grey.700' }} width="50%" height="3vw" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="TopProducts parent">
             <div className="wrapper">
@@ -41,7 +74,7 @@ function TopProducts() {
                                 <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
                             </div>
                             <div className="col-6 texts">
-                                <h1 className="name">{data.name_uz}</h1>
+                                <h1 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h1>
                                 <div className="top-type col-12">
                                     <div className="body">
                                         <div className="circle">TOP 1</div>

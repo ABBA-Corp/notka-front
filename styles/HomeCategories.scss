@@ -144,12 +144,16 @@
                     .name {
                         margin: 0;
                         opacity: 0.8;
+                        display: flex;
                         color: black;
                         font-size: 1.4vw;
                         font-weight: 600;
                         margin-top: 1.3vw;
                         text-align: center;
+                        align-items: center;
                         font-family: zonapro;
+                        flex-direction: column;
+                        justify-content: center;
 
                         @media (max-width:1000px) {
                             font-size: 1.9vw;

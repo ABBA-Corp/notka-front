@@ -1,21 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
-import NewsImg1 from '../assets/images/news1.png';
-import NewsImg2 from '../assets/images/news2.png';
+import { useQuery } from "react-query";
+import { Skeleton } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";
 import BackImg from '../assets/images/news-back.png';
+import { dataNews, fetchNewsApi } from "../pages/api/Api";
 
-function HomeNews() {
-
-    const dataNews = [
-        { id: 1, image: NewsImg1, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" },
-        { id: 2, image: NewsImg2, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" },
-        { id: 3, image: NewsImg1, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" },
-        { id: 4, image: NewsImg2, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" },
-        { id: 5, image: NewsImg1, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" },
-        { id: 6, image: NewsImg2, name_uz: "Eng shirin konfetlar", name_en: "Eng shirin konfetlar", name_ru: "Eng shirin konfetlar", description_uz: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_ru: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd", description_en: "Amerikada eng shirin kofet tayyorlandi bu zori dsfsdf sadfsd" }
-    ]
+function HomeNews({ lang }) {
 
     const settings = {
         speed: 2000,
@@ -45,6 +37,39 @@ function HomeNews() {
         ]
     };
 
+    // data of news
+
+    const { isLoading, data } = useQuery('news', fetchNewsApi);
+
+    // skeleton loading
+
+    if (isLoading) {
+        return (
+            <div className="HomeNews parent">
+                <div className="wrapper">
+                    <Slider {...settings} className="carousel">
+                        {[1, 2, 3, 4, 5, 6].map((data, index) => (
+                            <div key={index} className="new-card">
+                                <div className="body">
+                                    <Skeleton variant='rectangle' sx={{ bgcolor: 'grey.600' }} width="100%" height="10vw" />
+                                    <div className="texts">
+                                        <h1 className="name">
+                                            <Skeleton variant='text' sx={{ bgcolor: 'grey.600' }} width="100%" />
+                                        </h1>
+                                        <p className="desc">
+                                            <Skeleton variant='text' sx={{ bgcolor: 'grey.600' }} width="100%" />
+                                            <Skeleton variant='text' sx={{ bgcolor: 'grey.600' }} width="80%" />
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </Slider>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className="HomeNews parent">
             <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
@@ -55,8 +80,8 @@ function HomeNews() {
                             <Link href={`/news/${data.id}`} className="body">
                                 <Image src={data.image} priority alt="image" className="new-img" width={1000} height={500} />
                                 <div className="texts">
-                                    <h3 className="name">{data.name_uz.slice(0, 17)}...</h3>
-                                    <p className="desc">{data.description_uz.slice(0, 46)}...</p>
+                                    <h3 className="name">{lang == "uz" ? data.name_uz.slice(0, 17) : lang == "ru" ? data.name_ru.slice(0, 17) : data.name_en.slice(0, 17)}...</h3>
+                                    <p className="desc">{lang == "uz" ? data.description_uz.slice(0, 46) : lang == "ru" ? data.description_ru.slice(0, 46) : data.description_en.slice(0, 46)}...</p>
                                 </div>
                             </Link>
                         </div>

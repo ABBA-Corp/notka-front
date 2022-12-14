@@ -1,24 +1,36 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import BackImg from '../assets/images/image.png';
 import { VolumeUpRounded, VolumeOffRounded, PlayArrowRounded, PauseRounded } from '@mui/icons-material';
 
-const Header = () => {
+function Header() {
 
-    const [volume, setVolume] = useState(true);
+    const video = useRef();
     const [play, setPlay] = useState(true);
+    const [volume, setVolume] = useState(true);
+
+    function playVideo() {
+        setPlay(!play)
+        video.current.play()
+    };
+
+    function pauseVideo() {
+        setPlay(!play)
+        video.current.pause()
+    };
 
     return (
-        <div className="Header parent">
-            <Image src={BackImg} priority alt="img" className="back-img" width={1000} height={500} />
+        <div className="Header">
+            {/* <Image src={BackImg} priority alt="img" className="back-img" width={1000} height={500} /> */}
+            <video autoPlay playsInline loop muted={volume} ref={video} src="../video.mp4" typeof="video/mp4" />
             <div className="side-buttons">
                 <div className="volume" onClick={() => setVolume(!volume)}>
                     {volume ?
-                        <VolumeUpRounded className="icon" /> :
-                        <VolumeOffRounded className="icon" />
+                        <VolumeOffRounded className="icon" /> :
+                        <VolumeUpRounded className="icon" />
                     }
                 </div>
-                <div className="play" onClick={() => setPlay(!play)}>
+                <div className="play" onClick={() => play ? pauseVideo() : playVideo()}>
                     {play ?
                         <PauseRounded className="icon" /> :
                         <PlayArrowRounded className="icon" />

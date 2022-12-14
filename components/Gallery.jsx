@@ -1,15 +1,8 @@
 import Image from 'next/image';
 import Slider from 'react-slick';
-import GalleryImg from '../assets/images/gallery.png';
+import { dataGallery } from '../pages/api/Api';
 
 function Gallery() {
-
-    const dataGallery = [
-        { id: 1, image: GalleryImg },
-        { id: 2, image: GalleryImg },
-        { id: 3, image: GalleryImg },
-        { id: 4, image: GalleryImg }
-    ]
 
     const settings = {
         speed: 2000,

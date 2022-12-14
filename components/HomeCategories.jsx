@@ -1,26 +1,42 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useQuery } from "react-query";
+import { Skeleton } from "@mui/material";
 import Hover1 from '../assets/images/hover1.png';
 import Hover2 from '../assets/images/hover2.png';
 import Hover3 from '../assets/images/hover3.png';
 import { ChevronRight } from "@mui/icons-material";
-import CategImg1 from '../assets/images/category1.png';
-import CategImg2 from '../assets/images/category2.png';
-import CategImg3 from '../assets/images/category3.png';
+import { dataCategories, fetchCategoriesApi } from "../pages/api/Api";
 
-function HomeCategories() {
+function HomeCategories({ lang }) {
 
-    const dataCategories = [
-        { id: 1, color: "#FFEDC3", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 2, color: "#9FF8FF", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 3, color: "#B5FF93", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 4, color: "#FFEDC3", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 5, color: "#9FF8FF", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 6, color: "#B5FF93", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 7, color: "#FFEDC3", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 8, color: "#9FF8FF", image: CategImg2, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" },
-        { id: 9, color: "#B5FF93", image: CategImg1, slide_image: CategImg3, name_uz: "Orange orzu candy", name_ru: "Orange orzu candy", name_en: "Orange orzu candy" }
-    ];
+    // data of categories
+
+    const { isLoading, data } = useQuery('categories', fetchCategoriesApi);
+
+    // skeleton loading
+
+    if (isLoading) {
+        return (
+            <div className="HomeCategories parent">                
+                <div className="wrapper">
+                    <div className="cards">
+                        {[1, 2, 3, 4, 5, 6].map((data, index) => (
+                            <div key={index} className="category col-4">
+                                <div className="body">
+                                    <Skeleton variant='rounded' sx={{ bgcolor: 'grey.700' }} width="100%" height="10vw" className="img" />
+                                    <h1 className="name col-12">
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="100%" />
+                                        <Skeleton variant='text' sx={{ bgcolor: 'grey.700' }} width="50%" />
+                                    </h1>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
     return (
         <div className="HomeCategories parent">
@@ -34,7 +50,7 @@ function HomeCategories() {
                             <Link legacyBehavior href={`/categories/${data.id}`}>
                                 <a className={`body`} style={{ backgroundColor: `${data.color}` }}>
                                     <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
-                                    <h3 className="name">{data.name_uz}</h3>
+                                    <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
                                 </a>
                             </Link>
                         </div>
