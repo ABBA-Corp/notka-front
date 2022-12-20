@@ -18,7 +18,7 @@ function HomeCategories({ lang }) {
 
     if (isLoading) {
         return (
-            <div className="HomeCategories parent">                
+            <div className="HomeCategories parent">
                 <div className="wrapper">
                     <div className="cards">
                         {[1, 2, 3, 4, 5, 6].map((data, index) => (
@@ -57,7 +57,7 @@ function HomeCategories({ lang }) {
                     ))}
                 </div>
                 <div className="bottom-texts col-12">
-                    <div className="col-7 titles">
+                    <div className="col-7 titles">                        
                         <h1 className="title">Bizning tovarlarimiz</h1>
                         <p className="text">Biz tovarlarimiz sonini ko`paytirishda sonini ortirishda davom etamiz</p>
                     </div>
