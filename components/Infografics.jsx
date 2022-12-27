@@ -13,7 +13,7 @@ function Infografics({ lang }) {
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > observer.current.offsetTop - window.innerHeight / 2) {
+            if (window.scrollY > observer.current.offsetTop - window.innerHeight) {
                 setNumber1(1000);
                 setNumber2(300);
                 setNumber3(600);

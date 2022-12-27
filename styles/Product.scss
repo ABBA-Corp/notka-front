@@ -1,0 +1,20 @@
+.Product {
+    background-color: #EE4349;
+
+    .wrapper {
+        padding-top: 160px;
+
+        @media (max-width:900px) {
+            padding-top: 140px;
+        }
+
+        @media (max-width:600px) {
+            display: block;
+            padding-top: 120px;
+        }
+
+        @media (max-width:450px) {
+            padding-top: 100px;
+        }
+    }
+}

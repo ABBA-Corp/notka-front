@@ -77,6 +77,19 @@
 
                 .icon {
                     margin-right: 2vw;
+                    transition: 0.4s;
+                    -webkit-transition: 0.4s;
+                    -moz-transition: 0.4s;
+                    -ms-transition: 0.4s;
+                    -o-transition: 0.4s;
+
+                    &:hover {
+                        transform: rotate(360deg) scale(1.2);
+                        -webkit-transform: rotate(360deg) scale(1.2);
+                        -moz-transform: rotate(360deg) scale(1.2);
+                        -ms-transform: rotate(360deg) scale(1.2);
+                        -o-transform: rotate(360deg) scale(1.2);
+                    }
 
                     .fa-brands {
                         font-size: 2vw;

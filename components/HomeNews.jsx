@@ -88,11 +88,15 @@ function HomeNews({ lang }) {
                     ))}
                 </Slider>
                 <div className="bottom-texts col-12">
+                    <div className="col-5 btns res">
+                        Batafsil
+                        <Link href="/categories" className="explore"><ChevronRight /></Link>
+                    </div>
                     <div className="col-7 titles">
                         <h1 className="title">Yangiliklar</h1>
                         <p className="text">Korxonamizdagi barcha yangiliklarva Korxonamizdagi barcha yangiliklarva Korxonamizdagi barcha </p>
                     </div>
-                    <div className="col-5 btns">
+                    <div className="col-5 btns res1">
                         Batafsil
                         <Link href="/categories" className="explore"><ChevronRight /></Link>
                     </div>

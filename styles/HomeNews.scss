@@ -262,6 +262,7 @@
 
                 @media (max-width:500px) {
                     width: 100%;
+                    margin-top: 4vw;
                 }
 
                 .title {
@@ -323,6 +324,18 @@
                     @media (max-width:767px) {
                         padding: 1px 13px;
                     }
+                }
+            }
+
+            .res {
+                @media (min-width:500.1px) {
+                    display: none;
+                }
+            }
+
+            .res1 {
+                @media (max-width:500px) {
+                    display: none;
                 }
             }
         }

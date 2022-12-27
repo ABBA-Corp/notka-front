@@ -3,10 +3,12 @@ import Lenta1 from '../../assets/images/lenta1.png';
 import Lenta2 from '../../assets/images/lenta2.png';
 import NewsImg1 from '../../assets/images/news1.png';
 import NewsImg2 from '../../assets/images/news2.png';
-import GalleryImg from '../../assets/images/gallery.png';
+import GalleryImg from '../../assets/images/gallery.jpg';
 import CategImg1 from '../../assets/images/category1.png';
 import CategImg2 from '../../assets/images/category2.png';
 import CategImg3 from '../../assets/images/category3.png';
+import ProductImg1 from '../../assets/images/product1.png';
+import ProductImg2 from '../../assets/images/product2.png';
 import { CATEGORIES_DATA_URL, GALLERY_DATA_URL, LENTA_DATA_URL, NEWS_DATA_URL, PRODUCTS_DATA_URL } from './ApiUrl';
 
 // categories API
@@ -34,15 +36,15 @@ export const fetchProductsApi = () => {
 };
 
 export const dataProducts = [
-    { id: 1, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 2, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 3, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 4, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 5, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 6, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 7, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 8, image: CategImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
-    { id: 9, image: CategImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" }
+    { id: 1, category_id: 1, image: CategImg1, image2: ProductImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 2, category_id: 1, image: CategImg2, image2: ProductImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 3, category_id: 1, image: CategImg1, image2: ProductImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: false, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 4, category_id: 1, image: CategImg2, image2: ProductImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 5, category_id: 2, image: CategImg1, image2: ProductImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: false, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 6, category_id: 2, image: CategImg2, image2: ProductImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 7, category_id: 2, image: CategImg1, image2: ProductImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: false, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 8, category_id: 2, image: CategImg2, image2: ProductImg2, weight: 2, artikul: "NTK2orng", uglevod: 66, top: true, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" },
+    { id: 9, category_id: 2, image: CategImg1, image2: ProductImg1, weight: 2, artikul: "NTK2orng", uglevod: 66, top: false, name_uz: "ORANGE CANDY BY “NOTKA”", name_ru: "ORANGE CANDY BY “NOTKA”", name_en: "ORANGE CANDY BY “NOTKA”" }
 ];
 
 // lenta API

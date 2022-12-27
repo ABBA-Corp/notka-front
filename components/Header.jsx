@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useRef, useState } from "react";
-import BackImg from '../assets/images/image.png';
+import BackImg from '../assets/images/header.jpg';
 import { VolumeUpRounded, VolumeOffRounded, PlayArrowRounded, PauseRounded } from '@mui/icons-material';
 
 function Header() {

@@ -9,13 +9,13 @@ import { dataProducts, fetchProductsApi } from "../pages/api/Api";
 function TopProducts({ lang }) {
 
     const settings = {
-        speed: 2000,
+        speed: 2500,
         dots: false,
         autoplay: true,
         infinite: true,
         slidesToShow: 1,
         cssEase: "linear",
-        autoplaySpeed: 4000,
+        autoplaySpeed: 6000,
         pauseOnHover: false,
     };
 
@@ -95,7 +95,7 @@ function TopProducts({ lang }) {
                                 </div>
                                 <div className="btns">
                                     Batafsil
-                                    <Link href={`/products/${data.id}`} className="explore"><ChevronRight /></Link>
+                                    <Link href={`/product/${data.id}`} className="explore"><ChevronRight /></Link>
                                 </div>
                             </div>
                         </div>

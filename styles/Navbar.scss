@@ -25,6 +25,7 @@
         @media (max-width:600px) {
             padding: 30px 7vw;
             padding-bottom: 7px;
+            justify-content: space-between;
         }
 
         .logo {
@@ -320,6 +321,29 @@
 
 .scroll-navbar {
     background-color: #FFEDC3;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+    .navbar {
+        padding-top: 7px;
+    }
+}
+
+.light-navbar {
+    .navbar {
+        .stick {
+            color: white;
+        }
+
+        .menu {
+            .menu-title {
+                color: white;
+            }
+        }
+    }
+}
+
+.scroll-navbar-light {
+    background-color: #EF454B;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 
     .navbar {

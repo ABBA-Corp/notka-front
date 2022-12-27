@@ -47,7 +47,7 @@ function HomeCategories({ lang }) {
                             <Image src={Hover1} priority alt="image" className="hover1" width={1000} height={500} />
                             <Image src={Hover2} priority alt="image" className="hover2" width={1000} height={500} />
                             <Image src={Hover3} priority alt="image" className="hover3" width={1000} height={500} />
-                            <Link legacyBehavior href={`/categories/${data.id}`}>
+                            <Link legacyBehavior href={`/category/${data.id}`}>
                                 <a className={`body`} style={{ backgroundColor: `${data.color}` }}>
                                     <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
                                     <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
@@ -57,11 +57,15 @@ function HomeCategories({ lang }) {
                     ))}
                 </div>
                 <div className="bottom-texts col-12">
-                    <div className="col-7 titles">                        
+                    <div className="col-5 btns res">
+                        barcha tovarlar
+                        <Link href="/categories" className="explore"><ChevronRight /></Link>
+                    </div>
+                    <div className="col-7 titles">
                         <h1 className="title">Bizning tovarlarimiz</h1>
                         <p className="text">Biz tovarlarimiz sonini ko`paytirishda sonini ortirishda davom etamiz</p>
                     </div>
-                    <div className="col-5 btns">
+                    <div className="col-5 btns res1">
                         barcha tovarlar
                         <Link href="/categories" className="explore"><ChevronRight /></Link>
                     </div>

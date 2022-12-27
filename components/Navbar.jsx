@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Bar from '../assets/images/bar.png';
-import Logo from '../assets/images/logo.png';
 import { useEffect, useState } from "react";
+import Bar1 from '../assets/images/bar1.png';
+import Logo from '../assets/images/logo.png';
 import { CloseRounded } from "@mui/icons-material";
 
 const Navbar = () => {
+
+    const router = useRouter();
+    const { id } = router.query;
 
     // scroll animation
 
@@ -26,15 +31,17 @@ const Navbar = () => {
     const [language, setLanguage] = useState(false);
 
     return (
-        <div className={`Navbar ${scroll && "scroll-navbar"}`}>
+        <div className={`Navbar ${!id ? scroll && "scroll-navbar" : scroll && "scroll-navbar-light"} ${id && "light-navbar"}`}>
             <nav className="navbar">
                 <Link href="/" className="logo" onClick={() => window.scrollTo(0, 0)}>
                     <Image src={Logo} priority={true} alt="logo" className="img" />
                 </Link>
-                <div className="stick">|</div>
-                <div className="menu" onClick={() => setShowMenu(!showMenu)}>
-                    <Image src={Bar} priority={true} alt="bar" className="menu-bar" />
-                    <div className="menu-title">MENU</div>
+                <div className="d-flex align-items-center">
+                    <div className="stick">|</div>
+                    <div className="menu" onClick={() => setShowMenu(!showMenu)}>
+                        <Image src={id ? Bar1 : Bar} priority={true} alt="bar" className="menu-bar" />
+                        <div className="menu-title">MENU</div>
+                    </div>
                 </div>
                 <ul className={`navbar-nav ${showMenu && "show-menu"}`}>
                     <li className="nav-item">

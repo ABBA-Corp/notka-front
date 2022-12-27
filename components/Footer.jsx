@@ -28,13 +28,13 @@ function Footer() {
                         <Image src={Logo} priority alt="logo" className="logo" width={1000} height={500} />
                         <p className="text">Quo is the most easier way for transaction with your friends and family, No matter where are you. An exceptional way for make your life one step easier.</p>
                         <div className="icons">
-                            <a href="#" className="icon">
+                            <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="#" className="icon">
+                            <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-telegram"></i>
                             </a>
-                            <a href="#" className="icon">
+                            <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-instagram"></i>
                             </a>
                         </div>
