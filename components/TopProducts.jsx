@@ -64,7 +64,7 @@ function TopProducts({ lang }) {
     }
 
     return (
-        <div className="TopProducts parent">
+        <div className="TopProducts parent" id="topproduct">
             <div className="wrapper">
                 <div className="title">Top mahsulotlarimiz</div>
                 <Slider {...settings} className="carousel">
@@ -83,7 +83,7 @@ function TopProducts({ lang }) {
                                 </div>
                                 <div className="desc">
                                     <div className="keys">
-                                        <div className="key">oG'IRLIGI:</div>
+                                        <div className="key">ogIRLIGI:</div>
                                         <div className="key">aRTIKUL:</div>
                                         <div className="key">Углеводы:</div>
                                     </div>

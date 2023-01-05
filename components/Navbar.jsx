@@ -45,30 +45,34 @@ const Navbar = () => {
                 </div>
                 <ul className={`navbar-nav ${showMenu && "show-menu"}`}>
                     <li className="nav-item">
-                        <Link href="/" className="link">About us</Link>
+                        <Link href="/#categories" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Categories</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/" className="link">News and Blogs</Link>
-                    </li><li className="nav-item">
-                        <Link href="/" className="link">Categories</Link>
+                        <Link href="/#topproduct" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Top Products</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/" className="link">Products</Link>
+                        <Link href="/#about" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>About us</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/" className="link">360 showroom</Link>
+                        <Link href="/#news" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>News and Blogs</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/" className="link">Galleries</Link>
+                        <Link href="/#tour" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>360 showroom</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Contacts</Link>
                     </li>
                     <li className="nav-item language">
-                        <div className="lang-title" onClick={() => setLanguage(!language)}>EN</div>
+                        <div className="lang-title" onClick={() => setLanguage(!language)}>RU</div>
                         {language &&
                             <div className="lang-menu">
                                 <div className="lang-items" onClick={() => setLanguage(!language)}>UZ</div>
                                 <div className="lang-items" onClick={() => setLanguage(!language)}>RU</div>
                                 <div className="lang-items" onClick={() => setLanguage(!language)}>EN</div>
                             </div>
+                        }
+                        {language &&
+                            <div className="contrast-0" onClick={() => setLanguage(!language)}></div>
                         }
                     </li>
                     <CloseRounded className="close-icon" onClick={() => setShowMenu(!showMenu)} />

@@ -17,7 +17,7 @@ function Gallery() {
     };
 
     return (
-        <div className="Gallery parent">
+        <div className="Gallery parent" id='gallery'>
             <Slider {...settings} className='carousel'>
                 {dataGallery.map((data) => (
                     <div key={data.id} className="img">

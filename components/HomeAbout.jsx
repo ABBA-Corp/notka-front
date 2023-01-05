@@ -18,6 +18,20 @@ function HomeAbout() {
         slidesToScroll: 1,
         cssEase: "linear",
         pauseOnHover: false,
+        responsive: [
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 5,
+                }
+            },
+            {
+                breakpoint: 500,
+                settings: {
+                    slidesToShow: 4,
+                }
+            },
+        ]
     };
 
     // video
@@ -26,7 +40,7 @@ function HomeAbout() {
 
     return (
         <>
-            <div className="HomeAbout parent">
+            <div className="HomeAbout parent" id='about'>
                 <div className="wrapper">
                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                     <div className="col-6 texts">

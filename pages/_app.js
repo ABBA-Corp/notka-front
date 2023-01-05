@@ -1,5 +1,7 @@
 import React from 'react';
+import '../styles/News.scss';
 import '../styles/Modal.scss';
+import '../styles/About.scss';
 import '../styles/Icons.scss';
 import '../styles/Navbar.scss';
 import '../styles/Header.scss';

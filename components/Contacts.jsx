@@ -64,7 +64,7 @@ function Contacts({ changeModal }) {
     };
 
     return (
-        <div className="Contacts parent">
+        <div className="Contacts parent" id='contacts'>
             <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
             <div className="wrapper">
                 <div className="forms col-7">

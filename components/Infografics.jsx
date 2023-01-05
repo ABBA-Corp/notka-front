@@ -9,16 +9,16 @@ function Infografics({ lang }) {
     const [number3, setNumber3] = useState(0);
     const [number4, setNumber4] = useState(0);
 
-    const observer = useRef();
+    const observer = useRef(null);
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
-            if (window.scrollY > observer.current.offsetTop - window.innerHeight) {
+            if (observer.current?.offsetTop ? window.scrollY > observer.current.offsetTop - window.innerHeight : window.scrollY > 100) {
                 setNumber1(1000);
                 setNumber2(300);
                 setNumber3(600);
                 setNumber4(150);
-            } else if (window.scrollY < observer.current.offsetTop - window.innerHeight) {
+            } else if (observer.current?.offsetTop ? window.scrollY < observer.current.offsetTop - window.innerHeight : window.scrollY < 100) {
                 setNumber1(0);
                 setNumber2(0);
                 setNumber3(0);

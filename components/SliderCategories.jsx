@@ -97,7 +97,7 @@ function SliderCategories({ lang }) {
                                     <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                 </div>
                                 <div className="links col-12">
-                                    <Link href={`/categories/${data.id}`} className="explore">batafsil tanishish</Link>
+                                    <Link href={`/category/${data.id}`} className="explore">batafsil tanishish</Link>
                                 </div>
                             </div>
                             <div className="col-5 imgs">

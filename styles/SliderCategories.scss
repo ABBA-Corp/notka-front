@@ -8,7 +8,7 @@
 
             @media (max-width:600px) {
                 padding-top: 3.7vw !important;
-                padding-bottom: 3.7vw !important;
+                padding-bottom: 12vw !important;
             }
         }
 
@@ -191,6 +191,96 @@
                 -o-transition: 2s;
                 border: solid 1px white;
                 filter: drop-shadow(0px 31px 35px rgba(0, 0, 0, 0.15));
+            }
+        }
+
+        .slick-prev {
+            top: 100%;
+            z-index: 2;
+            left: 10vw;
+            width: 3.5vw;
+            height: 3.5vw;
+            border-radius: 50%;
+            visibility: hidden;
+            background-color: #EE4349;
+
+            &:hover {
+                background-color: #ee434935;
+
+                &::before {
+                    color: #EE4349;
+                }
+            }
+
+            @media (max-width:600px) {
+                left: 10vw;
+                width: 6vw;
+                height: 6vw;
+                visibility: visible;
+                top: calc(100% - 5vw);
+            }
+
+            &::before {
+                font-size: 1.7vw;
+                font-weight: 100;
+                color: #FFEDC3;
+                content: "\f104";
+                font-style: normal;
+                border-radius: 50%;
+                font-family: FontAwesome;
+
+                @media (max-width:1000px) {
+                    font-size: 2.5vw;
+                }
+
+                @media (max-width:600px) {
+                    font-size: 3.5vw;
+                }
+            }
+        }
+
+        .slick-next {
+            top: 100%;
+            z-index: 2;
+            right: -1vw;
+            width: 3.5vw;
+            height: 3.5vw;
+            border-radius: 50%;
+            visibility: hidden;
+            background-color: #EE4349;
+
+            &:hover {
+                background-color: #ee434935;
+
+                &::before {
+                    color: #EE4349;
+                }
+            }
+
+            @media (max-width:600px) {
+                width: 6vw;
+                height: 6vw;
+                right: 10vw;
+                visibility: visible;
+                top: calc(100% - 5vw);
+            }
+
+            &::before {
+                font-size: 1.7vw;
+                font-weight: 100;
+                color: #FFEDC3;
+                content: "\f105";
+                font-style: normal;
+                border-radius: 50%;
+                font-family: FontAwesome;
+
+                @media (max-width:1000px) {
+                    font-size: 2.5vw;
+                }
+
+                @media (max-width:600px) {
+                    font-size: 3.5vw;
+                }
             }
         }
     }

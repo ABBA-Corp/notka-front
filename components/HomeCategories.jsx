@@ -18,7 +18,7 @@ function HomeCategories({ lang }) {
 
     if (isLoading) {
         return (
-            <div className="HomeCategories parent">
+            <div className="HomeCategories parent" id="categories">
                 <div className="wrapper">
                     <div className="cards">
                         {[1, 2, 3, 4, 5, 6].map((data, index) => (
@@ -39,7 +39,7 @@ function HomeCategories({ lang }) {
     }
 
     return (
-        <div className="HomeCategories parent">
+        <div className="HomeCategories parent" id="categories">
             <div className="wrapper">
                 <div className="cards">
                     {dataCategories.slice(0, 6).map((data) => (
@@ -67,7 +67,7 @@ function HomeCategories({ lang }) {
                     </div>
                     <div className="col-5 btns res1">
                         barcha tovarlar
-                        <Link href="/categories" className="explore"><ChevronRight /></Link>
+                        <Link href="/category/0" className="explore"><ChevronRight /></Link>
                     </div>
                 </div>
             </div>

@@ -45,7 +45,7 @@ function HomeNews({ lang }) {
 
     if (isLoading) {
         return (
-            <div className="HomeNews parent">
+            <div className="HomeNews parent" id="news">
                 <div className="wrapper">
                     <Slider {...settings} className="carousel">
                         {[1, 2, 3, 4, 5, 6].map((data, index) => (
@@ -71,7 +71,7 @@ function HomeNews({ lang }) {
     }
 
     return (
-        <div className="HomeNews parent">
+        <div className="HomeNews parent" id="news">
             <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
             <div className="wrapper">
                 <Slider {...settings} className="carousel">
@@ -98,7 +98,7 @@ function HomeNews({ lang }) {
                     </div>
                     <div className="col-5 btns res1">
                         Batafsil
-                        <Link href="/categories" className="explore"><ChevronRight /></Link>
+                        <Link href="/news/0" className="explore"><ChevronRight /></Link>
                     </div>
                 </div>
             </div>

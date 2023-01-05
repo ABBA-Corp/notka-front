@@ -225,5 +225,10 @@
         margin: 0 15px;
         color: #EA3338;
         font-family: zonapro;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

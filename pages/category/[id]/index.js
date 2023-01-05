@@ -24,7 +24,7 @@ function Category(props) {
                 <div className="col-9">
                     <h1 className="title col-12">Bizning shirinliklar</h1>
                     <div className="products">
-                        {dataProducts.filter((c) => c.category_id == id).map((item) => (
+                        {dataProducts.filter((c) => id != 0 ? c.category_id == id : c).map((item) => (
                             <div key={item.id} className="col-3 product">
                                 <div className="body">
                                     <div className="imgs">

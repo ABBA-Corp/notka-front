@@ -5,7 +5,7 @@ import Icon3 from '../assets/images/icon3.png';
 
 function Icons() {
     return (
-        <div className="Icons parent">
+        <div className="Icons parent" id='adv'>
             <div className="wrapper">
                 <div className="col-4 icon">
                     <div className="body">
