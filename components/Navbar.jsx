@@ -5,7 +5,7 @@ import Bar from '../assets/images/bar.png';
 import { useEffect, useState } from "react";
 import Bar1 from '../assets/images/bar1.png';
 import Logo from '../assets/images/logo.png';
-import { CloseRounded } from "@mui/icons-material";
+import { CloseRounded, ExpandMore } from "@mui/icons-material";
 
 const Navbar = () => {
 
@@ -63,7 +63,7 @@ const Navbar = () => {
                         <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Contacts</Link>
                     </li>
                     <li className="nav-item language">
-                        <div className="lang-title" onClick={() => setLanguage(!language)}>RU</div>
+                        <div className="lang-title" onClick={() => setLanguage(!language)}>RU <ExpandMore className="icon" /></div>
                         {language &&
                             <div className="lang-menu">
                                 <div className="lang-items" onClick={() => setLanguage(!language)}>UZ</div>

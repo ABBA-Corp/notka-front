@@ -13,14 +13,14 @@ function SliderCategories({ lang }) {
     const [slideIndex, setSlideIndex] = useState(0);
 
     const settings = {
-        speed: 2000,
+        speed: 2500,
         autoplay: true,
         infinite: true,
         slidesToShow: 1,
         centerMode: true,
         cssEase: "linear",
         centerPadding: "22%",
-        autoplaySpeed: 4000,
+        autoplaySpeed: 5000,
         className: "center",
         pauseOnHover: false,
         beforeChange: (current, next) => setSlideIndex(next),
@@ -88,22 +88,24 @@ function SliderCategories({ lang }) {
             <Slider {...settings} className="carousel">
                 {dataCategories.map((data) => (
                     <div key={data.id} className="category">
-                        <div className={`body ${dataCategories.indexOf(data) == slideIndex && "active-body"}`}>
-                            <div className="col-8 tools">
-                                <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
-                                <div className="texts">
-                                    <p className="slogan">yangi konfet bizda!</p>
-                                    <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
-                                    <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
+                        <Link href={`/category/${data.id}`} legacyBehavior>
+                            <div className={`body ${dataCategories.indexOf(data) == slideIndex && "active-body"}`}>
+                                <div className="col-8 tools">
+                                    <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
+                                    <div className="texts">
+                                        <p className="slogan">yangi konfet bizda!</p>
+                                        <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
+                                        <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
+                                    </div>
+                                    <div className="links col-12">
+                                        <Link href={`/category/${data.id}`} className="explore">batafsil tanishish</Link>
+                                    </div>
                                 </div>
-                                <div className="links col-12">
-                                    <Link href={`/category/${data.id}`} className="explore">batafsil tanishish</Link>
+                                <div className="col-5 imgs">
+                                    <Image src={data.slide_image} priority alt="image" className="img" width={1000} height={500} />
                                 </div>
                             </div>
-                            <div className="col-5 imgs">
-                                <Image src={data.slide_image} priority alt="image" className="img" width={1000} height={500} />
-                            </div>
-                        </div>
+                        </Link>
                     </div>
                 ))}
             </Slider>
