@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Slider from 'react-slick';
-import { dataGallery } from '../pages/api/Api';
+import { useQuery } from 'react-query';
+import { dataGallery, fetchGalleriesApi } from '../pages/api/Api';
 
 function Gallery() {
 
@@ -16,12 +17,18 @@ function Gallery() {
         pauseOnHover: false,
     };
 
+    // data of gallery
+
+    const { isLoading, data } = useQuery('gallery', fetchGalleriesApi);
+
+    console.log(data?.data)
+
     return (
         <div className="Gallery parent" id='gallery'>
             <Slider {...settings} className='carousel'>
-                {dataGallery.map((data) => (
-                    <div key={data.id} className="img">
-                        <Image src={data.image} priority alt="image" className="gallery-img" width={1000} height={500} />
+                {data?.data.map((item) => (
+                    <div key={item.id} className="img">
+                        <Image src={item.photo} priority alt="image" className="gallery-img" width={1000} height={500} />
                     </div>
                 ))}
             </Slider>
