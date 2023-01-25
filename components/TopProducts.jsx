@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
 import { ChevronRight } from "@mui/icons-material";
-import { dataProducts, fetchProductsApi } from "../pages/api/Api";
+import { fetchProductsApi } from "../pages/api/Api";
 
 function TopProducts({ lang }) {
 
@@ -68,13 +68,13 @@ function TopProducts({ lang }) {
             <div className="wrapper">
                 <div className="title">Top mahsulotlarimiz</div>
                 <Slider {...settings} className="carousel">
-                    {dataProducts.filter((c) => c.top === true).map((data) => (
-                        <div key={data.id} className="product col-12">
+                    {data?.data.filter((c) => c.is_top === true).map((item) => (
+                        <div key={item.id} className="product col-12">
                             <div className="col-6 imgs">
-                                <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
+                                <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="img" width={500} height={500} />
                             </div>
                             <div className="col-6 texts">
-                                <h1 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h1>
+                                <h1 className="name">{lang == "uz" ? item.name_uz : lang == "ru" ? item.name_ru : item.name_en}</h1>
                                 <div className="top-type col-12">
                                     <div className="body">
                                         <div className="circle">TOP 1</div>
@@ -88,14 +88,14 @@ function TopProducts({ lang }) {
                                         <div className="key">Углеводы:</div>
                                     </div>
                                     <div className="values">
-                                        <div className="value">{data.weight} kg</div>
-                                        <div className="value">{data.artikul}</div>
-                                        <div className="value">{data.uglevod} g</div>
+                                        <div className="value">{item.weight} kg</div>
+                                        <div className="value">{item.artikul}</div>
+                                        <div className="value">{item.carbohydrates} g</div>
                                     </div>
                                 </div>
                                 <div className="btns">
                                     Batafsil
-                                    <Link href={`/product/${data.id}`} className="explore"><ChevronRight /></Link>
+                                    <Link href={`/product/${item.id}`} className="explore"><ChevronRight /></Link>
                                 </div>
                             </div>
                         </div>

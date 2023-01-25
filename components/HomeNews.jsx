@@ -3,9 +3,9 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
+import { fetchNewsApi } from "../pages/api/Api";
 import { ChevronRight } from "@mui/icons-material";
 import BackImg from '../assets/images/news-back.png';
-import { dataNews, fetchNewsApi } from "../pages/api/Api";
 
 function HomeNews({ lang }) {
 
@@ -75,13 +75,13 @@ function HomeNews({ lang }) {
             <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
             <div className="wrapper">
                 <Slider {...settings} className="carousel">
-                    {dataNews.map((data) => (
-                        <div key={data.id} className="new-card">
-                            <Link href={`/news/${data.id}`} className="body">
-                                <Image src={data.image} priority alt="image" className="new-img" width={1000} height={500} />
+                    {data?.data.map((item) => (
+                        <div key={item.id} className="new-card">
+                            <Link href={`/news/${item.id}`} className="body">
+                                <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="new-img" width={1000} height={500} />
                                 <div className="texts">
-                                    <h3 className="name">{lang == "uz" ? data.name_uz.slice(0, 17) : lang == "ru" ? data.name_ru.slice(0, 17) : data.name_en.slice(0, 17)}...</h3>
-                                    <p className="desc">{lang == "uz" ? data.description_uz.slice(0, 46) : lang == "ru" ? data.description_ru.slice(0, 46) : data.description_en.slice(0, 46)}...</p>
+                                    <h3 className="name">{lang == "uz" ? item.title_uz.slice(0, 17) : lang == "ru" ? item.title_ru.slice(0, 17) : item.title_en.slice(0, 17)}...</h3>
+                                    <p className="desc">{lang == "uz" ? item.description_uz.slice(0, 46) : lang == "ru" ? item.description_ru.slice(0, 46) : item.description_en.slice(0, 46)}...</p>
                                 </div>
                             </Link>
                         </div>

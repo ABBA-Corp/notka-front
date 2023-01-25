@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
 import BackImg from '../assets/images/slide-back.png';
 import TextBack from '../assets/images/text-back.png';
-import { dataCategories, fetchCategoriesApi } from "../pages/api/Api";
+import { fetchCategoriesApi } from "../pages/api/Api";
 
 function SliderCategories({ lang }) {
 
@@ -49,6 +49,8 @@ function SliderCategories({ lang }) {
     // data of header-slider
 
     const { isLoading, data } = useQuery('header-slider', fetchCategoriesApi);
+
+    const dataCategories = data?.data;
 
     // skeleton loading
 
@@ -94,7 +96,7 @@ function SliderCategories({ lang }) {
                                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                                     <div className="texts">
                                         <p className="slogan">yangi konfet bizda!</p>
-                                        <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
+                                        <h3 className="name">{lang == "uz" ? data.title_uz : lang == "ru" ? data.title_ru : data.title_en}</h3>
                                         <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                     </div>
                                     <div className="links col-12">
@@ -102,7 +104,7 @@ function SliderCategories({ lang }) {
                                     </div>
                                 </div>
                                 <div className="col-5 imgs">
-                                    <Image src={data.slide_image} priority alt="image" className="img" width={1000} height={500} />
+                                    <Image loader={() => `${data.photo ? data.photo : ""}?w=500&q=500`} src={data.photo ? data.photo : ""} priority alt="image" className="img" width={1000} height={500} />
                                 </div>
                             </div>
                         </Link>

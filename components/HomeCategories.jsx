@@ -6,7 +6,7 @@ import Hover1 from '../assets/images/hover1.png';
 import Hover2 from '../assets/images/hover2.png';
 import Hover3 from '../assets/images/hover3.png';
 import { ChevronRight } from "@mui/icons-material";
-import { dataCategories, fetchCategoriesApi } from "../pages/api/Api";
+import { fetchCategoriesApi } from "../pages/api/Api";
 
 function HomeCategories({ lang }) {
 
@@ -42,15 +42,15 @@ function HomeCategories({ lang }) {
         <div className="HomeCategories parent" id="categories">
             <div className="wrapper">
                 <div className="cards">
-                    {dataCategories.slice(0, 6).map((data) => (
-                        <div key={data.id} className="category col-4">
+                    {data?.data.slice(0, 6).map((item) => (
+                        <div key={item.id} className="category col-4">
                             <Image src={Hover1} priority alt="image" className="hover1" width={1000} height={500} />
                             <Image src={Hover2} priority alt="image" className="hover2" width={1000} height={500} />
                             <Image src={Hover3} priority alt="image" className="hover3" width={1000} height={500} />
-                            <Link legacyBehavior href={`/category/${data.id}`}>
-                                <a className={`body`} style={{ backgroundColor: `${data.color}` }}>
-                                    <Image src={data.image} priority alt="image" className="img" width={1000} height={500} />
-                                    <h3 className="name">{lang == "uz" ? data.name_uz : lang == "ru" ? data.name_ru : data.name_en}</h3>
+                            <Link legacyBehavior href={`/category/${item.id}`}>
+                                <a className={`body`} style={{ backgroundColor: `${item.color}` }}>
+                                    <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={1000} height={500} />
+                                    <h3 className="name">{lang == "uz" ? item.title_uz : lang == "ru" ? item.title_ru : item.title_en}</h3>
                                 </a>
                             </Link>
                         </div>
