@@ -71,7 +71,7 @@ function TopProducts({ lang }) {
                     {data?.data.filter((c) => c.is_top === true).map((item) => (
                         <div key={item.id} className="product col-12">
                             <div className="col-6 imgs">
-                                <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="img" width={500} height={500} />
+                                <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={500} height={500} />
                             </div>
                             <div className="col-6 texts">
                                 <h1 className="name">{lang == "uz" ? item.name_uz : lang == "ru" ? item.name_ru : item.name_en}</h1>

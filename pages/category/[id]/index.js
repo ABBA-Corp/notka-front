@@ -35,7 +35,7 @@ function Category() {
                             <div key={item.id} className="col-3 product">
                                 <div className="body">
                                     <div className="imgs">
-                                        <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="img" width={500} height={500} />
+                                        <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={500} height={500} />
                                     </div>
                                     <p className="name">{router.locale == "uz" ? item.name_uz : router.locale == "ru" ? item.name_ru : item.name_en}</p>
                                     <Link legacyBehavior href={`/product/${item.id}`}>

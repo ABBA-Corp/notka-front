@@ -1,0 +1,43 @@
+name: Notka.uz deploy
+
+on:
+  push:
+    branches:
+      - notka
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: GIT pulling from github repository
+      uses: appleboy/scp-action@master
+      env:
+        HOST: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      with:
+        source: "."
+        target: "/home/front/notka-front"
+
+    - name: Command using from script
+      uses: appleboy/ssh-action@master
+      env:
+        DISABLE_ESLINT_PLUGIN: "true"
+      with:
+        host: ${{ secrets.HOST }}
+        USERNAME: ${{ secrets.USERNAME }}
+        PORT: ${{ secrets.PORT }}
+        KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        envs: DISABLE_ESLINT_PLUGIN
+        script_stop: true
+        script: |
+          git --work-tree=/home/front/notka-front --git-dir=/home/front/notka-front/.git clean -f .
+          yarn --cwd /home/front/notka-front
+          yarn --cwd /home/front/notka-front run build
+          sh /home/devops/orzu_front.sh "${{ github.event.head_commit.message }}"
+          pm2 reload notka.uz

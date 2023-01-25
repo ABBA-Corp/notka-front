@@ -78,7 +78,7 @@ function HomeNews({ lang }) {
                     {data?.data.map((item) => (
                         <div key={item.id} className="new-card">
                             <Link href={`/news/${item.id}`} className="body">
-                                <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="new-img" width={1000} height={500} />
+                                <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="new-img" width={1000} height={500} />
                                 <div className="texts">
                                     <h3 className="name">{lang == "uz" ? item.title_uz.slice(0, 17) : lang == "ru" ? item.title_ru.slice(0, 17) : item.title_en.slice(0, 17)}...</h3>
                                     <p className="desc">{lang == "uz" ? item.description_uz.slice(0, 46) : lang == "ru" ? item.description_ru.slice(0, 46) : item.description_en.slice(0, 46)}...</p>

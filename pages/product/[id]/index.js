@@ -12,7 +12,6 @@ function Product() {
     // api data
 
     const { data } = useQuery('products', fetchProductsApi);
-    console.log(data?.data)
 
     return (
         <div className="Product parent">
@@ -21,7 +20,7 @@ function Product() {
                     <div key={item.id} className="col-12">
                         <div className="product col-5">
                             <h1 className="title">{router.locale == "uz" ? item.name_uz : router.locale == "ru" ? item.name_ru : item.name_en}</h1>
-                            <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="res-img" width={1000} height={500} />
+                            <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="res-img" width={1000} height={500} />
                             <div className="composition col-12">
                                 <h3 className="value-title">Пищевая ценность</h3>
                                 <div className="col-12 cards">
@@ -67,7 +66,7 @@ function Product() {
                         </div>
                         <div className="col-12 imgs">
                             <div className="col-5">
-                                <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="img" width={1000} height={500} />
+                                <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={1000} height={500} />
                                 <div className="gradient"></div>
                             </div>
                         </div>
