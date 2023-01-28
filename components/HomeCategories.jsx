@@ -42,7 +42,7 @@ function HomeCategories({ lang }) {
         <div className="HomeCategories parent" id="categories">
             <div className="wrapper">
                 <div className="cards">
-                    {data?.data.slice(0, 6).map((item) => (
+                    {data?.data.map((item) => (
                         <div key={item.id} className="category col-4">
                             <Image src={Hover1} priority alt="image" className="hover1" width={1000} height={500} />
                             <Image src={Hover2} priority alt="image" className="hover2" width={1000} height={500} />

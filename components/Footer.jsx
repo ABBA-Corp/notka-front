@@ -83,7 +83,7 @@ function Footer() {
                 </div>
             </div>
             <div className="bottom-footer">
-                Copyright © PERO | Designed by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">abba marketing</a> - Powered by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">ABBA</a>
+                Copyright © NOTKA | Designed by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">abba marketing</a> - Powered by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">ABBA</a>
             </div>
         </div>
     )
