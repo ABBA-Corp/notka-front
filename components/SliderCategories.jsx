@@ -88,7 +88,7 @@ function SliderCategories({ lang }) {
     return (
         <div className="SliderCategories parent">
             <Slider {...settings} className="carousel">
-                {dataCategories.map((data) => (
+                {dataCategories.slice(0, 4).map((data) => (
                     <div key={data.id} className="category">
                         <Link href={`/category/${data.id}`} legacyBehavior>
                             <div className={`body ${dataCategories.indexOf(data) == slideIndex && "active-body"}`}>
