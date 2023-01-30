@@ -12,11 +12,12 @@ import TopProducts from '../components/TopProducts';
 import Infografics from '../components/Infografics';
 import HomeCategories from '../components/HomeCategories';
 import SliderCategories from '../components/SliderCategories';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export function getStaticProps({ locale }) {
+export async function getStaticProps({ locale }) {
   return {
     props: {
-      locale
+      ...(await serverSideTranslations(locale, ["common"]))
     },
   };
 }

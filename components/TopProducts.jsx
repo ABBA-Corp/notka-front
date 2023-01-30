@@ -3,6 +3,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import { ChevronRight } from "@mui/icons-material";
 import { fetchProductsApi } from "../pages/api/Api";
 
@@ -18,6 +19,10 @@ function TopProducts({ lang }) {
         autoplaySpeed: 6000,
         pauseOnHover: false,
     };
+
+    // i18next
+
+    const { t } = useTranslation();
 
     // data of products
 
@@ -66,7 +71,7 @@ function TopProducts({ lang }) {
     return (
         <div className="TopProducts parent" id="topproduct">
             <div className="wrapper">
-                <div className="title">Top mahsulotlarimiz</div>
+                <div className="title">{t("top product")}</div>
                 <Slider {...settings} className="carousel">
                     {data?.data.filter((c) => c.is_top === true).map((item) => (
                         <div key={item.id} className="product col-12">

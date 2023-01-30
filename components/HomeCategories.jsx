@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import Hover1 from '../assets/images/hover1.png';
 import Hover2 from '../assets/images/hover2.png';
 import Hover3 from '../assets/images/hover3.png';
@@ -9,6 +10,10 @@ import { ChevronRight } from "@mui/icons-material";
 import { fetchCategoriesApi } from "../pages/api/Api";
 
 function HomeCategories({ lang }) {
+
+    // i18next
+
+    const { t } = useTranslation();
 
     // data of categories
 
@@ -58,15 +63,15 @@ function HomeCategories({ lang }) {
                 </div>
                 <div className="bottom-texts col-12">
                     <div className="col-5 btns res">
-                        barcha tovarlar
+                        {t("sweets")}
                         <Link href="/categories" className="explore"><ChevronRight /></Link>
                     </div>
                     <div className="col-7 titles">
-                        <h1 className="title">Bizning tovarlarimiz</h1>
-                        <p className="text">Biz tovarlarimiz sonini ko`paytirishda sonini ortirishda davom etamiz</p>
+                        <h1 className="title text-left">{t("products")}</h1>
+                        <p className="text">{t("prodesc")}</p>
                     </div>
                     <div className="col-5 btns res1">
-                        barcha tovarlar
+                        {t("sweets")}
                         <Link href="/category/0" className="explore"><ChevronRight /></Link>
                     </div>
                 </div>

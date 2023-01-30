@@ -5,6 +5,7 @@ import Bar from '../assets/images/bar.png';
 import { useEffect, useState } from "react";
 import Bar1 from '../assets/images/bar1.png';
 import Logo from '../assets/images/logo.png';
+import { useTranslation } from "next-i18next";
 import { CloseRounded, ExpandMore } from "@mui/icons-material";
 
 const Navbar = () => {
@@ -30,6 +31,14 @@ const Navbar = () => {
 
     const [language, setLanguage] = useState(false);
 
+    const { t } = useTranslation();
+
+    function changeLocaleLang(item) {
+        const { pathname, asPath, query } = router
+        router.push({ pathname, query }, asPath, { locale: item })
+        setLanguage(!language)
+    }
+
     return (
         <div className={`Navbar ${!id ? scroll && "scroll-navbar" : scroll && "scroll-navbar-light"} ${id && "light-navbar"}`}>
             <nav className="navbar">
@@ -45,30 +54,30 @@ const Navbar = () => {
                 </div>
                 <ul className={`navbar-nav ${showMenu && "show-menu"}`}>
                     <li className="nav-item">
-                        <Link href="/#categories" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Categories</Link>
+                        <Link href="/#categories" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("category")}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#topproduct" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Top Products</Link>
+                        <Link href="/#topproduct" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("top product")}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#about" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>About us</Link>
+                        <Link href="/#about" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("about")}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#news" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>News and Blogs</Link>
+                        <Link href="/#news" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("news")}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#tour" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>360 showroom</Link>
+                        <Link href="/#tour" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("360")}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>Contacts</Link>
+                        <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("contact")}</Link>
                     </li>
                     <li className="nav-item language">
-                        <div className="lang-title" onClick={() => setLanguage(!language)}>RU <ExpandMore className="icon" /></div>
+                        <div className="lang-title" onClick={() => setLanguage(!language)}>{router.locale.toUpperCase()} <ExpandMore className="icon" /></div>
                         {language &&
                             <div className="lang-menu">
-                                <div className="lang-items" onClick={() => setLanguage(!language)}>UZ</div>
-                                <div className="lang-items" onClick={() => setLanguage(!language)}>RU</div>
-                                <div className="lang-items" onClick={() => setLanguage(!language)}>EN</div>
+                                <div className="lang-items" onClick={() => changeLocaleLang("uz")}>UZ</div>
+                                <div className="lang-items" onClick={() => changeLocaleLang("ru")}>RU</div>
+                                <div className="lang-items" onClick={() => changeLocaleLang("en")}>EN</div>
                             </div>
                         }
                         {language &&
