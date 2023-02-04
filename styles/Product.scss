@@ -2,6 +2,7 @@
     background-color: #EE4349;
 
     .wrapper {
+        display: flex;
         padding-top: 180px;
         position: relative;
         padding-bottom: 70px;
@@ -16,6 +17,11 @@
             padding-bottom: 40px;
         }
 
+        .prods {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
         .product {
             z-index: 2;
             position: sticky;
@@ -26,6 +32,9 @@
 
             @media (max-width:600px) {
                 width: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
             }
 
             .title {
@@ -39,10 +48,11 @@
 
             .res-img {
                 margin-top: 3vw;
-                max-width: 100%;
-                min-width: 100%;
-                max-height: 80vw;
-                min-height: 80vw;
+                // max-width: 100%;
+                // min-width: 100%;
+                width: auto;
+                max-height: 70vw;
+                min-height: 70vw;
                 object-fit: cover;
                 border-radius: 4vw;
                 -webkit-border-radius: 4vw;
@@ -252,14 +262,14 @@
         }
 
         .imgs {
-            top: 0;
+            // top: 0;
             display: flex;
-            position: absolute;
-            justify-content: center;
+            // position: absolute;
+            align-items: flex-end;
+            justify-content: flex-end;
 
             @media (max-width:900px) {
-                left: 0;
-                padding-right: 7vw;
+                width: 45%;
                 justify-content: flex-end;
             }
 
@@ -267,14 +277,19 @@
                 display: none;
             }
 
-            .col-5 {
-                position: relative;
-            }
-
             .img {
-                height: auto;
+                // height: auto;
+                // max-width: 80%;
+                // min-width: 80%;
+                width: auto;
                 max-width: 100%;
-                min-width: 100%;
+                max-height: 30vw;
+                min-height: 30vw;
+
+                @media (max-width:900px) {
+                    max-height: 35vw;
+                    min-height: 35vw;
+                }
             }
 
             .gradient {

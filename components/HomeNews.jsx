@@ -3,6 +3,7 @@ import Image from "next/image";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
 import { Skeleton } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import { fetchNewsApi } from "../pages/api/Api";
 import { ChevronRight } from "@mui/icons-material";
 import BackImg from '../assets/images/news-back.png';
@@ -36,6 +37,10 @@ function HomeNews({ lang }) {
             }
         ]
     };
+
+    // i18next
+
+    const { t } = useTranslation();
 
     // data of news
 
@@ -89,15 +94,15 @@ function HomeNews({ lang }) {
                 </Slider>
                 <div className="bottom-texts col-12">
                     <div className="col-5 btns res">
-                        Batafsil
+                        {t("batafsil")}
                         <Link href="/categories" className="explore"><ChevronRight /></Link>
                     </div>
                     <div className="col-7 titles">
-                        <h1 className="title">Yangiliklar</h1>
-                        <p className="text">Korxonamizdagi barcha yangiliklarva Korxonamizdagi barcha yangiliklarva Korxonamizdagi barcha </p>
+                        <h1 className="title">{t("news")}</h1>
+                        <p className="text">{t("newsdesc")}</p>
                     </div>
                     <div className="col-5 btns res1">
-                        Batafsil
+                        {t("batafsil")}
                         <Link href="/news/0" className="explore"><ChevronRight /></Link>
                     </div>
                 </div>

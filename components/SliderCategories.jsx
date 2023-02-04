@@ -52,6 +52,8 @@ function SliderCategories({ lang }) {
 
     const dataCategories = data?.data;
 
+    console.log(dataCategories)
+
     // skeleton loading
 
     if (isLoading) {
@@ -95,8 +97,8 @@ function SliderCategories({ lang }) {
                                 <div className="col-8 tools">
                                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                                     <div className="texts">
-                                        <p className="slogan">yangi konfet bizda!</p>
                                         <h3 className="name">{lang == "uz" ? data.title_uz : lang == "ru" ? data.title_ru : data.title_en}</h3>
+                                        <p className="slogan">yangi konfet bizda!</p>
                                         <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                     </div>
                                     <div className="links col-12">
@@ -104,7 +106,7 @@ function SliderCategories({ lang }) {
                                     </div>
                                 </div>
                                 <div className="col-5 imgs">
-                                    <Image loader={() => `${data.photo ? data.photo : ""}?w=500&q=500`} src={data.photo ? data.photo : ""} priority alt="image" className="img" width={1000} height={500} />
+                                    <Image loader={() => `${data.slider_photo ? data.slider_photo : ""}?w=500&q=500`} src={data.slider_photo ? data.slider_photo : ""} priority alt="image" className="img" width={1000} height={500} />
                                 </div>
                             </div>
                         </Link>

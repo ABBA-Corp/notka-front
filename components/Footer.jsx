@@ -1,8 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import Logo from '../assets/images/logo.png';
+import { useTranslation } from "next-i18next";
 
 function Footer() {
+
+    // i18next
+
+    const { t } = useTranslation();
+
     return (
         <div className="Footer parent">
             <div className="top-footer">
@@ -10,7 +16,7 @@ function Footer() {
                     <Link href='/' onClick={() => window.scrollTo(0, 0)}>
                         <Image src={Logo} priority alt="logo" className="logo" width={1000} height={500} />
                     </Link>
-                    <p className="text">Quo is the most easier way for transaction with your friends and family, No matter where are you. An exceptional way for make your life one step easier.</p>
+                    <p className="text">{t("footerdesc")}</p>
                     <div className="icons">
                         <a href="#" className="icon">
                             <i className="fa-brands fa-facebook-f"></i>
@@ -28,7 +34,7 @@ function Footer() {
                         <Link href='/' onClick={() => window.scrollTo(0, 0)}>
                             <Image src={Logo} priority alt="logo" className="logo" width={1000} height={500} />
                         </Link>
-                        <p className="text">Quo is the most easier way for transaction with your friends and family, No matter where are you. An exceptional way for make your life one step easier.</p>
+                        <p className="text">{t("footerdesc")}</p>
                         <div className="icons">
                             <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-facebook-f"></i>
@@ -74,10 +80,13 @@ function Footer() {
                     <ul className="col-4">
                         <li className="title-li">Contact</li>
                         <li>
-                            <a href="#" className="link">84/E/2  West Jafrabad, Liverpool, Uk</a>
+                            <a href="#" className="link">Toshkent shahar, Uchtepa tumani, Foziltepa 82b uy</a>
                         </li>
                         <li>
-                            <a href="#" className="link">+8801757410907</a>
+                            <a href="tel:+99871-217-40-00" className="link">+998 71 217 40 00</a>
+                        </li>
+                        <li>
+                            <a href="tel:+99890-943-38-38" className="link">+998 90 943-38-38</a>
                         </li>
                     </ul>
                 </div>

@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { useState } from 'react';
+import { useTranslation } from "next-i18next";
 import BackImg from '../assets/images/contacts.jpg';
 
 function Contacts({ changeModal }) {
@@ -63,13 +64,17 @@ function Contacts({ changeModal }) {
         }
     };
 
+    // i18next
+
+    const { t } = useTranslation();
+
     return (
         <div className="Contacts parent" id='contacts'>
             <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
             <div className="wrapper">
                 <div className="forms col-7">
-                    <h1 className="title">Savol va takliflar</h1>
-                    <p className="text">Malumotlar havfsizligi biz tomonimizdan taminlanadi</p>
+                    <h1 className="title">{t("question")}</h1>
+                    <p className="text">{t("questiondesc")}</p>
                     <div className="col-12 forms-control">
                         <input className={`${invalidName && "red-line"}`} type="text" value={nameValue} onChange={(e) => changeName(e.target.value)} placeholder='Ismingiz va Familiyangz' />
                     </div>
@@ -80,8 +85,8 @@ function Contacts({ changeModal }) {
                         <textarea className={`${invalidText && "red-line"}`} rows="6" value={textValue} onChange={(e) => changeText(e.target.value)} placeholder='Habaringizni yozib qoldirin'></textarea>
                     </div>
                     <div className="button col-12">
-                        <button onClick={() => sendMessage()}>yuborish</button>
-                        <button>jaoylashuv</button>
+                        <button onClick={() => sendMessage()}>{t("send")}</button>
+                        <button>{t("location")}</button>
                     </div>
                 </div>
             </div>
