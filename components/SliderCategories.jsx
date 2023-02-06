@@ -3,13 +3,15 @@ import Image from "next/image";
 import { useState } from "react";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
 import BackImg from '../assets/images/slide-back.png';
 import TextBack from '../assets/images/text-back.png';
 import { fetchCategoriesApi } from "../pages/api/Api";
 
-function SliderCategories({ lang }) {
+function SliderCategories() {
 
+    const router = useRouter();
     const [slideIndex, setSlideIndex] = useState(0);
 
     const settings = {
@@ -20,7 +22,7 @@ function SliderCategories({ lang }) {
         centerMode: true,
         cssEase: "linear",
         centerPadding: "22%",
-        autoplaySpeed: 5000,
+        autoplaySpeed: 6000,
         className: "center",
         pauseOnHover: false,
         beforeChange: (current, next) => setSlideIndex(next),
@@ -97,7 +99,7 @@ function SliderCategories({ lang }) {
                                 <div className="col-8 tools">
                                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                                     <div className="texts">
-                                        <h3 className="name">{lang == "uz" ? data.title_uz : lang == "ru" ? data.title_ru : data.title_en}</h3>
+                                        <h3 className="name">{router.locale == "uz" ? data.title_uz : router.locale == "ru" ? data.title_ru : data.title_en}</h3>
                                         <p className="slogan">yangi konfet bizda!</p>
                                         <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                     </div>

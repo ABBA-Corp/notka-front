@@ -5,7 +5,9 @@ import Bar from '../assets/images/bar.png';
 import { useEffect, useState } from "react";
 import Bar1 from '../assets/images/bar1.png';
 import Logo from '../assets/images/logo.png';
-import { useTranslation } from "next-i18next";
+import UZ from '../public/locales/uz/common.json';
+import RU from '../public/locales/ru/common.json';
+import EN from '../public/locales/en/common.json';
 import { CloseRounded, ExpandMore } from "@mui/icons-material";
 
 const Navbar = () => {
@@ -31,7 +33,7 @@ const Navbar = () => {
 
     const [language, setLanguage] = useState(false);
 
-    const { t } = useTranslation();
+    const t = router.locale == "uz" ? UZ : router.locale == "ru" ? RU : EN
 
     function changeLocaleLang(item) {
         const { pathname, asPath, query } = router
@@ -54,22 +56,22 @@ const Navbar = () => {
                 </div>
                 <ul className={`navbar-nav ${showMenu && "show-menu"}`}>
                     <li className="nav-item">
-                        <Link href="/#categories" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("category")}</Link>
+                        <Link href="/#categories" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t.category}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#topproduct" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("top product")}</Link>
+                        <Link href="/#topproduct" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t["top product"]}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#about" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("about")}</Link>
+                        <Link href="/#about" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t.about}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#news" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("news")}</Link>
+                        <Link href="/#news" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t.news}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#tour" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("360")}</Link>
+                        <Link href="/#tour" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t[360]}</Link>
                     </li>
                     <li className="nav-item">
-                        <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t("contact")}</Link>
+                        <Link href="/#contacts" scroll={false} className="link" onClick={() => setShowMenu(!showMenu)}>{t.contact}</Link>
                     </li>
                     <li className="nav-item language">
                         <div className="lang-title" onClick={() => setLanguage(!language)}>{router.locale.toUpperCase()} <ExpandMore className="icon" /></div>

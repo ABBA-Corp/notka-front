@@ -25,6 +25,16 @@
 
                 &:hover {
 
+                    .body {
+                        .img {
+                            transform: scale(1.15);
+                            -webkit-transform: scale(1.15);
+                            -moz-transform: scale(1.15);
+                            -ms-transform: scale(1.15);
+                            -o-transform: scale(1.15);
+                        }
+                    }
+
                     .hover1,
                     .hover2,
                     .hover3 {
@@ -128,8 +138,13 @@
                         max-width: 10vw;
                         min-width: 10vw;
                         margin-top: -7vw;
+                        transition: 0.2s;
+                        -webkit-transition: 0.2s;
+                        -moz-transition: 0.2s;
+                        -ms-transition: 0.2s;
+                        -o-transition: 0.2s;
 
-                        @media (max-width:767px) {
+                        @media(max-width:767px) {
                             max-width: 13vw;
                             min-width: 13vw;
                         }

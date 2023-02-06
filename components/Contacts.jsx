@@ -76,17 +76,17 @@ function Contacts({ changeModal }) {
                     <h1 className="title">{t("question")}</h1>
                     <p className="text">{t("questiondesc")}</p>
                     <div className="col-12 forms-control">
-                        <input className={`${invalidName && "red-line"}`} type="text" value={nameValue} onChange={(e) => changeName(e.target.value)} placeholder='Ismingiz va Familiyangz' />
+                        <input className={`${invalidName && "red-line"}`} type="text" value={nameValue} onChange={(e) => changeName(e.target.value)} placeholder={`${t("name")}`} />
                     </div>
                     <div className="col-12 forms-control">
-                        <input className={`${invalidNumber && "red-line"}`} type="number" value={numberValue} onChange={(e) => changeNumber(e.target.value)} placeholder='Telefon raqamingiz' />
+                        <input className={`${invalidNumber && "red-line"}`} type="number" value={numberValue} onChange={(e) => changeNumber(e.target.value)} placeholder={`${t("phone")}`} />
                     </div>
                     <div className="col-12 forms-control">
-                        <textarea className={`${invalidText && "red-line"}`} rows="6" value={textValue} onChange={(e) => changeText(e.target.value)} placeholder='Habaringizni yozib qoldirin'></textarea>
+                        <textarea className={`${invalidText && "red-line"}`} rows="6" value={textValue} onChange={(e) => changeText(e.target.value)} placeholder={`${t("message")}`}></textarea>
                     </div>
                     <div className="button col-12">
                         <button onClick={() => sendMessage()}>{t("send")}</button>
-                        <button>{t("location")}</button>
+                        <button onClick={() => window.open('https://www.google.com/maps?q=41.293376,69.171515&ll=41.293376,69.171515&z=16')}>{t("location")}</button>
                     </div>
                 </div>
             </div>

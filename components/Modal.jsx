@@ -1,14 +1,19 @@
-function Modal({ lang, changeModal }) {
+import { useRouter } from "next/router";
+
+function Modal({ changeModal }) {
+
+    const router = useRouter();
+
     return (
         <>
             <div className='Modal'>
-                {lang == "en" &&
+                {router.locale == "en" &&
                     <h1>THANK YOU FOR YOUR APPEAL &#128522;</h1>
                 }
-                {lang == "ru" &&
+                {router.locale == "ru" &&
                     <h1>СПАСИБО 3A ОБРАЩЕНИЕ &#128522;</h1>
                 }
-                {lang == "uz" &&
+                {router.locale == "uz" &&
                     <h1>MUROJAATINGIZ UCHUN TASHAKKUR &#128522;</h1>
                 }
                 <button onClick={() => changeModal()}>OK</button>

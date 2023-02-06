@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Slider from 'react-slick';
 import { useState } from 'react';
 import { dataLenta } from '../pages/api/Api';
+import { useTranslation } from "next-i18next";
 import BackImg from '../assets/images/about.png';
 import { East, PlayArrowRounded } from '@mui/icons-material';
 
@@ -38,27 +39,21 @@ function HomeAbout() {
 
     const [showVideo, setShowVideo] = useState(false);
 
+    // i18next
+
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="HomeAbout parent" id='about'>
                 <div className="wrapper">
                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                     <div className="col-6 texts">
-                        <h1 className="about-title">O наши компани</h1>
-                        <p className="desc">
-                            World Textile Marketing Agency основан
-                            в 2019 году молодыми специалистами
-                            в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
-
-                            Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.World Textile Marketing Agency основан
-                            в 2019 году молодыми специалистами
-                            в области маркетинга, текстильной индустрии, веб-программирования, организации мероприятий, дизайна одежды и  полиграфии.
-
-                            Наша команда специализируется в продвижении предприятий легкой промышленности на зарубежные рынки.
-                        </p>
+                        <h1 className="about-title">{t("abt")}</h1>
+                        <p className="desc">{t("abouttxt1")}</p>
                         <div className="btns">
-                            <Link href='/about' className="explore"><East className='icon' />Подробнее</Link>
-                            <div className="explore" onClick={() => setShowVideo(true)}><PlayArrowRounded className='icon' /> Видео ролик</div>
+                            <Link href='/about' className="explore"><East className='icon' />{t("batafsil")}</Link>
+                            <div className="explore" onClick={() => setShowVideo(true)}><PlayArrowRounded className='icon' /> {t("video-btn")}</div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +69,7 @@ function HomeAbout() {
                 <div className="media">
                     <div className="contrast" onClick={() => setShowVideo(false)}></div>
                     <div className="video col-6">
-                        <iframe src="https://www.youtube.com/embed/f_MJhnGuSMM" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/0R1tRhO_jLE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                 </div>
             }

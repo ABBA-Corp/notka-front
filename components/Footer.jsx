@@ -1,13 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import Logo from '../assets/images/logo.png';
-import { useTranslation } from "next-i18next";
+import UZ from '../public/locales/uz/common.json';
+import RU from '../public/locales/ru/common.json';
+import EN from '../public/locales/en/common.json';
 
 function Footer() {
 
+    const router = useRouter();
+
     // i18next
 
-    const { t } = useTranslation();
+    const t = router.locale == "uz" ? UZ : router.locale == "ru" ? RU : EN
 
     return (
         <div className="Footer parent">
@@ -16,7 +21,7 @@ function Footer() {
                     <Link href='/' onClick={() => window.scrollTo(0, 0)}>
                         <Image src={Logo} priority alt="logo" className="logo" width={1000} height={500} />
                     </Link>
-                    <p className="text">{t("footerdesc")}</p>
+                    <p className="text">{t.footerdesc}</p>
                     <div className="icons">
                         <a href="#" className="icon">
                             <i className="fa-brands fa-facebook-f"></i>
@@ -34,7 +39,7 @@ function Footer() {
                         <Link href='/' onClick={() => window.scrollTo(0, 0)}>
                             <Image src={Logo} priority alt="logo" className="logo" width={1000} height={500} />
                         </Link>
-                        <p className="text">{t("footerdesc")}</p>
+                        <p className="text">{t.footerdesc}</p>
                         <div className="icons">
                             <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-facebook-f"></i>
@@ -48,39 +53,39 @@ function Footer() {
                         </div>
                     </div>
                     <ul className="col-4">
-                        <li className="title-li">Company</li>
+                        <li className="title-li">{t.foot1}</li>
                         <li>
-                            <Link href="/#about" className="link" scroll={false}>About Us</Link>
+                            <Link href="/#about" className="link" scroll={false}>{t.foot2}</Link>
                         </li>
                         <li>
-                            <Link href="/#tour" className="link" scroll={false}>Show Room</Link>
+                            <Link href="/#tour" className="link" scroll={false}>{t.foot3}</Link>
                         </li>
                         <li>
-                            <Link href="/#infografics" className="link" scroll={false}>Infografics</Link>
+                            <Link href="/#infografics" className="link" scroll={false}>{t.foot4}</Link>
                         </li>
                         <li>
-                            <Link href="/#news" className="link" scroll={false}>News/Blog</Link>
-                        </li>
-                    </ul>
-                    <ul className="col-4">
-                        <li className="title-li">Necessary</li>
-                        <li>
-                            <Link href="/#categories" className="link" scroll={false}>Categories</Link>
-                        </li>
-                        <li>
-                            <Link href="/#topproduct" className="link" scroll={false}>Top Products</Link>
-                        </li>
-                        <li>
-                            <Link href="/#adv" className="link" scroll={false}>Advantages</Link>
-                        </li>
-                        <li>
-                            <Link href="/#gallery" className="link" scroll={false}>Galleries</Link>
+                            <Link href="/#news" className="link" scroll={false}>{t.foot5}</Link>
                         </li>
                     </ul>
                     <ul className="col-4">
-                        <li className="title-li">Contact</li>
+                        <li className="title-li">{t.foot6}</li>
                         <li>
-                            <a href="#" className="link">Toshkent shahar, Uchtepa tumani, Foziltepa 82b uy</a>
+                            <Link href="/#categories" className="link" scroll={false}>{t.foot7}</Link>
+                        </li>
+                        <li>
+                            <Link href="/#topproduct" className="link" scroll={false}>{t.foot8}</Link>
+                        </li>
+                        <li>
+                            <Link href="/#adv" className="link" scroll={false}>{t.foot9}</Link>
+                        </li>
+                        <li>
+                            <Link href="/#gallery" className="link" scroll={false}>{t.foot10}</Link>
+                        </li>
+                    </ul>
+                    <ul className="col-4">
+                        <li className="title-li">{t.foot11}</li>
+                        <li>
+                            <a href="https://www.google.com/maps?q=41.293376,69.171515&ll=41.293376,69.171515&z=16" className="link">{t.foot12}</a>
                         </li>
                         <li>
                             <a href="tel:+99871-217-40-00" className="link">+998 71 217 40 00</a>
@@ -92,7 +97,7 @@ function Footer() {
                 </div>
             </div>
             <div className="bottom-footer">
-                Copyright © NOTKA | Designed by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">abba marketing</a> - Powered by <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">ABBA</a>
+                {t.foot13} © NOTKA | {t.foot14} <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">abba marketing</a> - {t.foot15} <a href="https://www.instagram.com/abba.uz/" target="blank" className="brand">ABBA</a>
             </div>
         </div>
     )

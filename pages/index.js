@@ -41,8 +41,8 @@ export default function Home(props) {
       </Head>
       <div className='Home'>
         <Header />
-        <SliderCategories lang={props.locale} />
-        <HomeCategories lang={props.locale} />
+        <SliderCategories />
+        <HomeCategories />
         <TopProducts lang={props.locale} />
         <HomeAbout />
         <HomeNews lang={props.locale} />
@@ -52,7 +52,7 @@ export default function Home(props) {
         <Gallery />
         <Contacts changeModal={changeModal} />
         {showModal &&
-          <Modal lang={props.locale} changeModal={changeModal} />
+          <Modal changeModal={changeModal} />
         }
       </div>
     </>

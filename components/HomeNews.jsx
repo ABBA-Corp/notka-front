@@ -46,6 +46,8 @@ function HomeNews({ lang }) {
 
     const { isLoading, data } = useQuery('news', fetchNewsApi);
 
+    console.log(data?.data)
+
     // skeleton loading
 
     if (isLoading) {

@@ -2,12 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { ChevronRight } from "@mui/icons-material";
 import { fetchProductsApi } from "../pages/api/Api";
 
-function TopProducts({ lang }) {
+function TopProducts() {
+
+    const router = useRouter();
 
     const settings = {
         speed: 2500,
@@ -79,27 +82,27 @@ function TopProducts({ lang }) {
                                 <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={500} height={500} />
                             </div>
                             <div className="col-6 texts">
-                                <h1 className="name">{lang == "uz" ? item.name_uz : lang == "ru" ? item.name_ru : item.name_en}</h1>
+                                <h1 className="name">{router.locale == "uz" ? item.name_uz : router.locale == "ru" ? item.name_ru : item.name_en}</h1>
                                 <div className="top-type col-12">
                                     <div className="body">
-                                        <div className="circle">TOP 1</div>
-                                        <p>10 t+ sotilgan</p>
+                                        {/* <div className="circle">TOP</div> */}
+                                        <p>{router.locale == "uz" ? item.subtitle_uz : router.locale == "ru" ? item.subtitle_ru : item.subtitle_en}</p>
                                     </div>
                                 </div>
                                 <div className="desc">
                                     <div className="keys">
-                                        <div className="key">ogIRLIGI:</div>
-                                        <div className="key">aRTIKUL:</div>
-                                        <div className="key">Углеводы:</div>
+                                        <div className="key">{t("weight")}:</div>
+                                        <div className="key">{t("deadline")}:</div>
+                                        <div className="key">{t("uglevod")}:</div>
                                     </div>
                                     <div className="values">
-                                        <div className="value">{item.weight} kg</div>
+                                        <div className="value">{item.weight} {t("kg")}</div>
                                         <div className="value">{item.artikul}</div>
-                                        <div className="value">{item.carbohydrates} g</div>
+                                        <div className="value">{item.carbohydrates} {t("g")}</div>
                                     </div>
                                 </div>
                                 <div className="btns">
-                                    Batafsil
+                                    {t("batafsil")}
                                     <Link href={`/product/${item.id}`} className="explore"><ChevronRight /></Link>
                                 </div>
                             </div>

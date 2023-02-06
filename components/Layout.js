@@ -12,7 +12,7 @@ function Layout({ children }) {
     useEffect(() => {
         setTimeout(() => {
             setShowLoader(false)
-        }, 4000);
+        }, 3000);
     }, [])
 
     return (

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import Hover1 from '../assets/images/hover1.png';
@@ -9,7 +10,9 @@ import Hover3 from '../assets/images/hover3.png';
 import { ChevronRight } from "@mui/icons-material";
 import { fetchCategoriesApi } from "../pages/api/Api";
 
-function HomeCategories({ lang }) {
+function HomeCategories() {
+
+    const router = useRouter();
 
     // i18next
 
@@ -55,7 +58,7 @@ function HomeCategories({ lang }) {
                             <Link legacyBehavior href={`/category/${item.id}`}>
                                 <a className={`body`} style={{ backgroundColor: `${item.color}` }}>
                                     <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="img" width={1000} height={500} />
-                                    <h3 className="name">{lang == "uz" ? item.title_uz : lang == "ru" ? item.title_ru : item.title_en}</h3>
+                                    <h3 className="name">{router.locale == "uz" ? item.title_uz : router.locale == "ru" ? item.title_ru : item.title_en}</h3>
                                 </a>
                             </Link>
                         </div>
