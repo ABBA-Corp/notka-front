@@ -1,6 +1,9 @@
 import axios from 'axios';
 import Lenta1 from '../../assets/images/lenta1.png';
 import Lenta2 from '../../assets/images/lenta2.png';
+import Lenta3 from '../../assets/images/lenta3.png';
+import Lenta4 from '../../assets/images/lenta4.png';
+import Lenta5 from '../../assets/images/lenta5.png';
 import NewsImg1 from '../../assets/images/news1.png';
 import NewsImg2 from '../../assets/images/news2.png';
 import ProductImg from '../../assets/images/product.png';
@@ -57,12 +60,12 @@ export const fetchLentaApi = () => {
 export const dataLenta = [
     { id: 1, image: Lenta1 },
     { id: 2, image: Lenta2 },
-    { id: 3, image: Lenta1 },
-    { id: 4, image: Lenta2 },
-    { id: 5, image: Lenta1 },
-    { id: 6, image: Lenta2 },
-    { id: 7, image: Lenta1 },
-    { id: 8, image: Lenta2 }
+    { id: 3, image: Lenta3 },
+    { id: 4, image: Lenta4 },
+    { id: 5, image: Lenta5 },
+    { id: 6, image: Lenta1 },
+    { id: 7, image: Lenta2 },
+    { id: 8, image: Lenta3 }
 ];
 
 // news API

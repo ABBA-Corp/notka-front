@@ -53,7 +53,7 @@ function HomeAbout() {
                         <p className="desc">{t("abouttxt1")}</p>
                         <div className="btns">
                             <Link href='/about' className="explore"><East className='icon' />{t("batafsil")}</Link>
-                            <div className="explore" onClick={() => setShowVideo(true)}><PlayArrowRounded className='icon' /> {t("video-btn")}</div>
+                            <div className="explore" onClick={() => setShowVideo(true)}><PlayArrowRounded className='icon' /> {t("vide-btn")}</div>
                         </div>
                     </div>
                 </div>
