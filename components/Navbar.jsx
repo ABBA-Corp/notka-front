@@ -39,6 +39,7 @@ const Navbar = () => {
         const { pathname, asPath, query } = router
         router.push({ pathname, query }, asPath, { locale: item })
         setLanguage(!language)
+        setShowMenu(false)
     }
 
     return (

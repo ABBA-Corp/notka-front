@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslation } from "next-i18next";
-import BackImg from '../assets/images/contacts.jpg';
+import BackImg from '../assets/images/contacts.png';
 
 function Contacts({ changeModal }) {
 
@@ -70,7 +70,7 @@ function Contacts({ changeModal }) {
 
     return (
         <div className="Contacts parent" id='contacts'>
-            <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
+            <Image src={BackImg} priority alt="image" className="back-img" width={1500} height={1000} />
             <div className="wrapper">
                 <div className="forms col-7">
                     <h1 className="title">{t("question")}</h1>
