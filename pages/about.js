@@ -68,6 +68,7 @@ function About() {
                     <div className="video col-10">
                         <iframe src="https://www.youtube.com/embed/0R1tRhO_jLE" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
+                    <p className="desc">{t("abouttxt2")}</p>
                 </div>
                 <Slider {...settings} className="lenta">
                     {dataLenta.map((data) => (

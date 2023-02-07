@@ -98,7 +98,7 @@
                 }
 
                 .cards {
-                    gap: 1vw;
+                    gap: 0.8vw;
                     display: flex;
                     margin-top: 2vw;
 
@@ -140,7 +140,7 @@
 
                         p {
                             color: white;
-                            font-size: 1.2vw;
+                            font-size: 1.1vw;
                             margin-bottom: 1vw;
 
                             @media (max-width:900px) {
@@ -239,7 +239,7 @@
                         align-items: flex-start;
 
                         .value {
-                            color: white;
+                            color: #FFEAC2;
                             font-size: 1.3vw;
                             font-weight: 400;
                             font-family: zonapro;

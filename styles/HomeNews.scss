@@ -91,7 +91,12 @@
                                 color: #AA343A;
                                 font-weight: 700;
                                 font-size: 1.1vw;
+                                overflow: hidden;
                                 font-family: zonapro;
+                                display: -webkit-box;
+                                font-family: zonapro;
+                                -webkit-box-orient: vertical;
+                                -webkit-line-clamp: 1;
 
                                 @media (max-width:1000px) {
                                     font-size: 1.7vw;
@@ -113,7 +118,7 @@
                                 font-family: zonapro;
                                 -webkit-box-orient: vertical;
                                 -webkit-line-clamp: 2;
-                                
+
                                 @media (max-width:1000px) {
                                     font-size: 1.4vw;
                                 }

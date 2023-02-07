@@ -97,7 +97,7 @@ function TopProducts() {
                                     </div>
                                     <div className="values">
                                         <div className="value">{item.weight} {t("kg")}</div>
-                                        <div className="value">{item.artikul}</div>
+                                        <div className="value">{item.artikul} {t("oy")}</div>
                                         <div className="value">{item.carbohydrates} {t("g")}</div>
                                     </div>
                                 </div>

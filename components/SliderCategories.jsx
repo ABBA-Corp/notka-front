@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import { useQuery } from "react-query";
 import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
+import { useTranslation } from "next-i18next";
 import BackImg from '../assets/images/slide-back.png';
 import TextBack from '../assets/images/text-back.png';
 import { fetchCategoriesApi } from "../pages/api/Api";
@@ -47,6 +48,10 @@ function SliderCategories() {
             }
         ]
     };
+
+    // i18next
+
+    const { t } = useTranslation();
 
     // data of header-slider
 
@@ -100,11 +105,11 @@ function SliderCategories() {
                                     <Image src={BackImg} priority alt="image" className="back-img" width={1000} height={500} />
                                     <div className="texts">
                                         <h3 className="name">{router.locale == "uz" ? data.title_uz : router.locale == "ru" ? data.title_ru : data.title_en}</h3>
-                                        <p className="slogan">yangi konfet bizda!</p>
+                                        <p className="slogan">{t("slide-slogan")}</p>
                                         <Image src={TextBack} priority alt="image" className="back-img" width={1000} height={500} />
                                     </div>
                                     <div className="links col-12">
-                                        <Link href={`/category/${data.id}`} className="explore">batafsil tanishish</Link>
+                                        <Link href={`/category/${data.id}`} className="explore">{t("slide-btn")}</Link>
                                     </div>
                                 </div>
                                 <div className="col-5 imgs">

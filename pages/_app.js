@@ -17,6 +17,7 @@ import '../styles/Category.scss';
 import '../styles/HomeAbout.scss';
 import '../styles/TopProducts.scss';
 import '../styles/Infografics.scss';
+import '../styles/ScrollTopBtn.scss';
 import '../styles/HomeCategories.scss';
 import '../styles/SliderCategories.scss';
 import Layout from '../components/Layout';

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Slider from "react-slick";
 import { useQuery } from "react-query";
+import { useRouter } from "next/router";
 import { Skeleton } from "@mui/material";
 import { useTranslation } from "next-i18next";
 import { fetchNewsApi } from "../pages/api/Api";
@@ -9,6 +10,8 @@ import { ChevronRight } from "@mui/icons-material";
 import BackImg from '../assets/images/news-back.png';
 
 function HomeNews({ lang }) {
+
+    const router = useRouter();
 
     const settings = {
         speed: 2000,
@@ -45,8 +48,6 @@ function HomeNews({ lang }) {
     // data of news
 
     const { isLoading, data } = useQuery('news', fetchNewsApi);
-
-    console.log(data?.data)
 
     // skeleton loading
 
@@ -87,8 +88,8 @@ function HomeNews({ lang }) {
                             <Link href={`/news/${item.id}`} className="body">
                                 <Image loader={() => `${item.photo ? item.photo : ""}?w=500&q=500`} src={item.photo ? item.photo : ""} priority alt="image" className="new-img" width={1000} height={500} />
                                 <div className="texts">
-                                    <h3 className="name">{lang == "uz" ? item.title_uz.slice(0, 17) : lang == "ru" ? item.title_ru.slice(0, 17) : item.title_en.slice(0, 17)}...</h3>
-                                    <p className="desc">{lang == "uz" ? item.description_uz.slice(0, 46) : lang == "ru" ? item.description_ru.slice(0, 46) : item.description_en.slice(0, 46)}...</p>
+                                    <h3 className="name">{router.locale == "uz" ? item.title_uz.slice(0, 17) : router.locale == "ru" ? item.title_ru.slice(0, 17) : item.title_en.slice(0, 17)}...</h3>
+                                    <p className="desc">{router.locale == "uz" ? item.description_uz.slice(0, 46) : router.locale == "ru" ? item.description_ru.slice(0, 46) : item.description_en.slice(0, 46)}...</p>
                                 </div>
                             </Link>
                         </div>

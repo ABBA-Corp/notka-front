@@ -61,11 +61,15 @@ export const dataLenta = [
     { id: 1, image: Lenta1 },
     { id: 2, image: Lenta2 },
     { id: 3, image: Lenta3 },
-    { id: 4, image: Lenta4 },
+    { id: 4, image: Lenta2 },
     { id: 5, image: Lenta5 },
-    { id: 6, image: Lenta1 },
-    { id: 7, image: Lenta2 },
-    { id: 8, image: Lenta3 }
+    { id: 6, image: Lenta4 },
+    { id: 7, image: Lenta1 },
+    { id: 8, image: Lenta2 },
+    { id: 9, image: Lenta3 },
+    { id: 10, image: Lenta4 },
+    { id: 11, image: Lenta5 },
+    { id: 12, image: Lenta2 },
 ];
 
 // news API

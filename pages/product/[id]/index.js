@@ -58,7 +58,7 @@ function Product() {
                                             {t.country1}
                                         </div>
                                         <div className="value">
-                                            {item.artikul}
+                                            {item.artikul} {t.oy}
                                         </div>
                                         <div className="value">
                                             {item.weight} {t.kg}

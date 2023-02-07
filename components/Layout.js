@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import Loader from "./Loader";
 import Navbar from "./Navbar";
 import { useEffect, useState } from "react";
+import ScrollTopBtn from "./ScrolTopBtn";
 
 function Layout({ children }) {
 
@@ -22,6 +23,7 @@ function Layout({ children }) {
             }
             <Navbar />
             {children}
+            <ScrollTopBtn />
             <Footer />
         </>
     )
