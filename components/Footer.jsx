@@ -29,7 +29,7 @@ function Footer() {
                         <a href="#" className="icon">
                             <i className="fa-brands fa-telegram"></i>
                         </a>
-                        <a href="#" className="icon">
+                        <a href="https://instagram.com/notka.uz?igshid=ZDdkNTZiNTM=" className="icon">
                             <i className="fa-brands fa-instagram"></i>
                         </a>
                     </div>
@@ -47,7 +47,7 @@ function Footer() {
                             <a href="#" target="blank" className="icon">
                                 <i className="fa-brands fa-telegram"></i>
                             </a>
-                            <a href="#" target="blank" className="icon">
+                            <a href="https://instagram.com/notka.uz?igshid=ZDdkNTZiNTM=" target="blank" className="icon">
                                 <i className="fa-brands fa-instagram"></i>
                             </a>
                         </div>
