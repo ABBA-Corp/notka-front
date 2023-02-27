@@ -25,8 +25,8 @@ function Gallery() {
         <div className="Gallery parent" id='gallery'>
             <Slider {...settings} className='carousel'>
                 {data?.data.map((item) => (
-                    <div key={item.id} className="img">
-                        <Image loader={() => `${item.photo}?w=500&q=500`} src={item.photo} priority alt="image" className="gallery-img" width={1000} height={500} />
+                    <div key={item.id} className="imgs">
+                        <Image loader={() => `${item.photo}?w=1500&q=1000`} src={item.photo} priority alt="image" className="gallery-img" width={1500} height={1000} />
                     </div>
                 ))}
             </Slider>
