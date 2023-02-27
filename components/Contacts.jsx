@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslation } from "next-i18next";
-import BackImg from '../assets/images/contacts.png';
+import BackImg from '../assets/images/contacts.jpg';
 
 function Contacts({ changeModal }) {
 

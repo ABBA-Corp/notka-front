@@ -13,7 +13,7 @@ function Gallery() {
         slidesToShow: 1,
         slidesToScroll: 1,
         cssEase: "linear",
-        autoplaySpeed: 4000,
+        autoplaySpeed: 6000,
         pauseOnHover: false,
     };
 

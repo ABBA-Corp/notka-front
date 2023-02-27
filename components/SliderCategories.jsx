@@ -59,8 +59,6 @@ function SliderCategories() {
 
     const dataCategories = data?.data;
 
-    console.log(dataCategories)
-
     // skeleton loading
 
     if (isLoading) {
