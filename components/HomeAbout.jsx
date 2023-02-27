@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import { useState } from 'react';
 import { dataLenta } from '../pages/api/Api';
 import { useTranslation } from "next-i18next";
-import BackImg from '../assets/images/about.png';
+import BackImg from '../assets/images/about1.png';
 import { East, PlayArrowRounded } from '@mui/icons-material';
 
 function HomeAbout() {
