@@ -36,6 +36,7 @@ function HomeAbout() {
     };
 
     // video
+    
 
     const [showVideo, setShowVideo] = useState(false);
 
